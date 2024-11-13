@@ -118,4 +118,22 @@ document.addEventListener('DOMContentLoaded', function () {
         // Thêm code xử lý đăng ký bằng Google
         alert('Tính năng đăng ký bằng Google đang được phát triển');
     });
+
+    // Xử lý nút Trang chủ trong navigation
+    const homeLink = document.querySelector('a[href="/"]');
+    if (homeLink) {
+        homeLink.addEventListener('click', function (e) {
+            e.preventDefault();
+            window.location.href = 'trang-chu.html';
+        });
+    }
+
+    // Xử lý logo/brand nếu có
+    const brandLink = document.querySelector('.brand');
+    if (brandLink) {
+        brandLink.addEventListener('click', function (e) {
+            e.preventDefault();
+            window.location.href = 'trang-chu.html';
+        });
+    }
 });
