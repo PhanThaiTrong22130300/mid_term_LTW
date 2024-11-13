@@ -173,6 +173,9 @@ nav a:hover {
 .social-login {
     text-align: center;
     margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .social-btn {
@@ -187,6 +190,20 @@ nav a:hover {
     cursor: pointer;
     margin: 0 0.5rem;
     color: white;
+    width: 45%;
+    max-width: 180px;
+}
+
+.social-login p {
+    width: 100%;
+    margin-bottom: 1rem;
+}
+
+.social-login .buttons-container {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    width: 100%;
 }
 
 .facebook-btn {
@@ -195,6 +212,7 @@ nav a:hover {
 
 .google-btn {
     background-color: #db4437;
+    width: 120%;
 }
 
 .login-link {
@@ -232,11 +250,8 @@ footer {
 
 /* Footer hover effects */
 .footer-links a:hover {
-    /* Khi di chuột vào các liên kết ở footer */
     color: #1877f2;
-    /* Đổi màu chữ thành màu xanh Facebook */
     transition: color 0.3s ease;
-    /* Hiệu ứng chuyển màu mượt mà trong 0.3 giây */
 }
 
 /* Responsive styles */
