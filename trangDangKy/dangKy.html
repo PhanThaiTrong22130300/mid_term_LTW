@@ -1,44 +1,35 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="vi">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Đăng Ký</title>
+    <title>TTD Shop - Đăng Ký</title>
     <link rel="stylesheet" href="dangKy.css">
     <script src="dangKy.js" defer></script>
-
-    <!-- Font Awesome for icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
 </head>
 
 <body>
-    <!-- Header -->
-    <header class="header">
-        <div class="header-container">
-            <div class="left-group">
-                <nav class="main-nav">
-                    <ul>
-                        <li><a href="../trang-chu.html" class="nav-link">Trang chủ</a></li>
-                        <li><a href="/about" class="nav-link">Giới thiệu</a></li>
-                        <li><a href="/services" class="nav-link">Dịch vụ</a></li>
-                        <li><a href="/contact" class="nav-link">Liên hệ</a></li>
-                    </ul>
-                </nav>
-            </div>
-
-            <div class="header-actions">
-                <div class="search-box">
-                    <input type="text" placeholder="Tìm kiếm...">
-                    <i class="fas fa-search"></i>
-                </div>
-                <a href="/login" class="login-btn">Đăng nhập</a>
-                <a href="/register" class="register-btn">Đăng ký</a>
-            </div>
+    <header>
+        <div class="brand">TTD SHOP</div>
+        <div class="auth-links">
+            <a href="#"><i class="fas fa-user-plus"></i> Đăng Ký</a>
+            <a href="#"><i class="fas fa-sign-in-alt"></i> Đăng Nhập</a>
         </div>
     </header>
 
-    <!-- Main Content -->
+    <nav>
+        <a href="../trang-chu.html">Trang Chủ</a>
+        <a href="#">Sản Phẩm</a>
+        <a href="#">Tin Tức</a>
+        <a href="#">Liên Hệ</a>
+        <div class="cart">
+            <i class="fas fa-shopping-cart cart-icon"></i>
+            <a href="#" class="cart-text">Xem Giỏ Hàng</a>
+        </div>
+    </nav>
+
     <!-- Main Content -->
     <main class="main-container">
         <div class="register-container">
@@ -79,12 +70,14 @@
 
                 <div class="social-login">
                     <p>Hoặc đăng ký với</p>
-                    <button type="button" class="social-btn facebook-btn">
-                        <i class="fab fa-facebook-f"></i> Facebook
-                    </button>
-                    <button type="button" class="social-btn google-btn">
-                        <i class="fab fa-google"></i> Google
-                    </button>
+                    <div class="buttons-container">
+                        <button type="button" class="social-btn facebook-btn">
+                            <i class="fab fa-facebook-f"></i> Facebook
+                        </button>
+                        <button type="button" class="social-btn google-btn">
+                            <i class="fab fa-google"></i> Google
+                        </button>
+                    </div>
                 </div>
 
                 <div class="login-link">
@@ -94,54 +87,21 @@
         </div>
     </main>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="footer-container">
-            <div class="footer-section">
-                <h3>Về chúng tôi</h3>
-                <ul>
-                    <li><a href="#">Giới thiệu</a></li>
-                    <li><a href="#">Tầm nhìn & Sứ mệnh</a></li>
-                    <li><a href="#">Đội ngũ</a></li>
-                </ul>
-            </div>
-
-            <div class="footer-section">
-                <h3>Dịch vụ</h3>
-                <ul>
-                    <li><a href="#">Bảo hành sản phẩm</a></li>
-                    <li><a href="#">Giao hàng tận nơi</a></li>
-                    <li><a href="#">Thanh toán online</a></li>
-                </ul>
-            </div>
-
-            <div class="footer-section">
-                <h3>Liên hệ</h3>
-                <ul class="contact-info">
-                    <li><i class="fas fa-map-marker-alt"></i> số 15 đường Linh Trung TP.Thủ Đức</li>
-                    <li><i class="fas fa-phone"></i> +84 123 456 78</li>
-                    <li><i class="fas fa-envelope"></i> ttdshop@gmail.com</li>
-                </ul>
-            </div>
-
-            <div class="footer-section">
-                <h3>Kết nối với chúng tôi</h3>
-                <div class="social-links">
-                    <a href="#"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#"><i class="fab fa-twitter"></i></a>
-                    <a href="#"><i class="fab fa-instagram"></i></a>
-                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                </div>
-            </div>
+    <footer>
+        <div class="footer-contact">
+            <p><i class="fas fa-phone-alt"></i> Điện thoại:012 345 678</p>
+            <p><i class="fas fa-envelope"></i> Email:ttdshop@gmail.com</p>
         </div>
 
-        <div class="footer-bottom">
-            <p>&copy; Thank you</p>
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="#">Giới Thiệu</a> |
+                <a href="#">Điều Khoản</a> |
+                <a href="#">Chính Sách Bảo Mật</a>
+                <p>&copy; 2024 TTD Shop. Tất cả quyền được bảo lưu.</p>
+            </div>
         </div>
     </footer>
-
-
-
 </body>
 
 </html>
