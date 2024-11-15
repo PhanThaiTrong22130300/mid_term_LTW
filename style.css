@@ -142,10 +142,25 @@ nav a:hover {
     width: 100%;
     box-sizing: border-box;
 }
+.product-container {
+    display: flex;
+    flex-wrap: nowrap;
+    flex-shrink: 0;
+}
 
 .product-grid::-webkit-scrollbar {
     width: 10px; /* Kích thước thanh cuộn */
 }
+
+.product-grid::-webkit-scrollbar-thumb {
+    background-color: #ccc;
+    border-radius: 5px;
+}
+
+.product-grid::-webkit-scrollbar-track {
+    background-color: #f1f1f1;
+}
+
 
 .product {
     flex: 0 0 auto;
@@ -159,6 +174,10 @@ nav a:hover {
     text-align: center;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s, box-shadow 0.3s;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .product:hover {
@@ -174,12 +193,24 @@ nav a:hover {
 
 .product h3 {
     margin-top: 10px;
-    font-size: 18px;
+    font-size: 16px;
+    height: 40px;
+}
+.product h3 a {
+    color: #333;
+    transition: color 0.3s ease, text-decoration 0.3s ease;
+    cursor: pointer;
+}
+
+.product h3 a:hover {
+    color: #007bff;
+    text-decoration: underline;
 }
 
 .product p {
     color: #666;
     font-size: 14px;
+    height: 40px;
 }
 
 .product .price {
