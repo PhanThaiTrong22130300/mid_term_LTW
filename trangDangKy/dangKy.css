@@ -250,7 +250,7 @@ footer {
 }
 
 .footer-links a:hover {
-    color: var(--primary-color);
+    color: var(--success-color);
     transition: var(--transition-default);
 }
 
