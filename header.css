@@ -40,15 +40,16 @@ nav a {
     font-weight: bold;
 }
 
-nav a:hover {
+nav a:hover::after {
     text-decoration: underline;
 }
 
 .search-container {
     display: flex;
     align-items: center;
-    padding-left: 300px;
-    margin-left: auto;
+    justify-content: flex-end;
+    flex: 1;
+    padding: 0 20px;
 }
 
 .search-label {
@@ -64,7 +65,8 @@ nav a:hover {
     border: 1px solid #555;
     background-color: #fff;
     color: #555;
-    width: 140px;
+    width: 100%;
+    max-width: 200px;
     transition: width 0.3s ease;
 }
 
@@ -72,6 +74,7 @@ nav a:hover {
 #search-icon {
     color: #555;
     cursor: pointer;
+    margin-left: 10px;
 }
 
 .cart {
