@@ -6,74 +6,6 @@ body {
     overflow-x: hidden;
 }
 
-header {
-    background: #333;
-    color: #fff;
-    padding: 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.brand {
-    font-size: 24px;
-    font-weight: bold;
-    margin-left: 20px;
-}
-
-
-.auth-links {
-    margin-right: 20px;
-}
-
-.auth-links a {
-    color: #fff;
-    margin: 0 10px;
-    text-decoration: none;
-    font-weight: bold;
-}
-
-nav {
-    background: #fff;
-    padding: 15px 60px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    display: flex;
-    justify-content: flex-start;
-}
-
-nav a {
-    color: #555;
-    margin: 0 15px;
-    text-decoration: none;
-    font-weight: bold;
-}
-
-nav a:hover {
-    text-decoration: underline;
-}
-
-.cart {
-    display: flex;
-    align-items: center;
-    margin-left: auto;
-}
-
-.cart-icon {
-    font-size: 24px;
-    margin-right: 0px;
-    color: #555;
-}
-
-.cart-text {
-    color: #555;
-    text-decoration: none;
-    font-weight: bold;
-}
-
-.cart-text:hover {
-    text-decoration: underline;
-}
-
 .hero-image {
     height: 400px;
     display: flex;
@@ -112,10 +44,25 @@ nav a:hover {
     width: 100%;
     box-sizing: border-box;
 }
+.product-container {
+    display: flex;
+    flex-wrap: nowrap;
+    flex-shrink: 0;
+}
 
 .product-grid::-webkit-scrollbar {
-    width: 100px;
+    width: 10px; /* Kích thước thanh cuộn */
 }
+
+.product-grid::-webkit-scrollbar-thumb {
+    background-color: #ccc;
+    border-radius: 5px;
+}
+
+.product-grid::-webkit-scrollbar-track {
+    background-color: #f1f1f1;
+}
+
 
 .product {
     flex: 0 0 auto;
@@ -129,6 +76,10 @@ nav a:hover {
     text-align: center;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s, box-shadow 0.3s;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .product:hover {
@@ -144,12 +95,24 @@ nav a:hover {
 
 .product h3 {
     margin-top: 10px;
-    font-size: 18px;
+    font-size: 16px;
+    height: 40px;
+}
+.product h3 a {
+    color: #333;
+    transition: color 0.3s ease, text-decoration 0.3s ease;
+    cursor: pointer;
+}
+
+.product h3 a:hover {
+    color: #007bff;
+    text-decoration: underline;
 }
 
 .product p {
     color: #666;
     font-size: 14px;
+    height: 40px;
 }
 
 .product .price {
@@ -290,70 +253,4 @@ nav a:hover {
 
 .brand-logo:hover {
     opacity: 1;
-}
-
-
-footer {
-    background-color: #333;
-    color: #fff;
-    padding: 20px 0;
-    font-size: 14px;
-    text-align: center;
-}
-
-.footer-content {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
-}
-
-.footer-links {
-    margin-top: 10px;
-}
-
-.footer-links a {
-    color: #fff;
-    text-decoration: none;
-    margin: 0 15px;
-    font-weight: normal;
-}
-
-.footer-links a:hover {
-    text-decoration: underline;
-    color: #28a745;
-}
-
-.footer-contact {
-    color: #fff;
-    padding: 10px;
-    text-align: center;
-}
-
-.footer-contact p {
-    margin: 5px 0;
-}
-
-.footer-contact a {
-    color: #fff;
-    text-decoration: none;
-}
-
-.footer-contact a:hover {
-    color: #d4edda;
-    text-decoration: underline;
-}
-
-
-.footer-contact p {
-    margin: 5px 0;
-}
-
-.footer-contact a {
-    color: #fff;
-    text-decoration: none;
-}
-
-.footer-contact a:hover {
-    color: #28a745;
-    text-decoration: underline;
 }
