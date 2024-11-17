@@ -133,6 +133,12 @@ body {
     justify-content: space-between;
 }
 
+.btn-detail a {
+    color: white;
+    text-decoration: none;
+}
+
+
 .product-buttons button {
     background-color: #007bff;
     color: #fff;
