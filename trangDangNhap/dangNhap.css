@@ -227,3 +227,83 @@ nav {
     background-color: var(--primary-color);
     transform: translateY(-2px);
 }
+
+.social-login {
+    text-align: center;
+    margin-top: var(--spacing-lg);
+}
+
+.social-login p {
+    color: var(--secondary-color);
+    margin-bottom: var(--spacing-sm);
+}
+
+.buttons-container {
+    display: flex;
+    gap: var(--spacing-sm);
+}
+
+.social-btn {
+    flex: 1;
+    padding: var(--spacing-sm);
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    background-color: var(--white);
+    cursor: pointer;
+    transition: var(--transition-default);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-xs);
+}
+
+.facebook-btn {
+    background-color: #1877f2;
+    color: var(--white);
+}
+
+.google-btn {
+    background-color: #db4437;
+    color: var(--white);
+}
+
+.facebook-btn:hover {
+    background-color: #1877f2;
+    transform: translateY(-2px);
+}
+
+.google-btn:hover {
+    background-color: #db4437;
+    transform: translateY(-2px);
+}
+
+/* Register Link */
+.register-link {
+    text-align: center;
+    margin-top: var(--spacing-md);
+}
+
+.register-link a {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.register-link a:hover {
+    text-decoration: underline;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .main-container {
+        padding: var(--spacing-sm);
+    }
+
+    .login-container {
+        padding: var(--spacing-md);
+    }
+
+    .buttons-container {
+        flex-direction: column;
+    }
+}
