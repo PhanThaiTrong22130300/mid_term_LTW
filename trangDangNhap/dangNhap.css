@@ -1,0 +1,125 @@
+/* Variables */
+:root {
+    /* Colors */
+    --primary-color: #1877f2;
+    --secondary-color: #333;
+    --background-color: #f0f2f5;
+    --white: #ffffff;
+    --border-color: #ddd;
+    --error-color: #dc3545;
+    --success-color: #28a745;
+
+    /* Spacing */
+    --spacing-xs: 0.5rem;
+    --spacing-sm: 1rem;
+    --spacing-md: 1.5rem;
+    --spacing-lg: 2rem;
+
+    /* Transitions */
+    --transition-default: all 0.3s ease;
+}
+
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Header */
+header {
+    background-color: var(--secondary-color);
+    color: var(--white);
+    padding: var(--spacing-sm) var(--spacing-lg);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.brand {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.auth-links a {
+    color: var(--white);
+    margin-left: var(--spacing-sm);
+}
+
+.auth-links a:hover {
+    color: var(--primary-color);
+    transform: translateY(-2px);
+    transition: var(--transition-default);
+}
+
+/* Navigation */
+nav {
+    background-color: var(--white);
+    padding: var(--spacing-sm) var(--spacing-lg);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-links {
+    display: flex;
+    gap: var(--spacing-lg);
+}
+
+.nav-links a {
+    color: var(--secondary-color);
+    font-weight: 500;
+}
+
+.nav-links a:hover {
+    color: var(--primary-color);
+    transform: translateY(-2px);
+    transition: var(--transition-default);
+}
+
+/* Cart hover effect */
+.cart {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+}
+
+.cart-icon {
+    color: var(--secondary-color);
+    transition: var(--transition-default);
+}
+
+.cart-text {
+    color: var(--secondary-color);
+    font-weight: 500;
+    transition: var(--transition-default);
+}
+
+.cart:hover .cart-icon,
+.cart:hover .cart-text {
+    color: var(--primary-color);
+    transform: translateY(-2px);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .nav-links {
+        flex-direction: column;
+        gap: var(--spacing-sm);
+    }
+
+    header {
+        flex-direction: column;
+        gap: var(--spacing-sm);
+        text-align: center;
+    }
+
+    nav {
+        flex-direction: column;
+        gap: var(--spacing-sm);
+    }
+
+    .auth-links {
+        margin-top: var(--spacing-xs);
+    }
+}
