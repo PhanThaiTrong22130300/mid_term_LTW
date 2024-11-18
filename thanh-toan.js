@@ -1,53 +1,55 @@
-// DOM Content Loaded
-document.addEventListener("DOMContentLoaded", function () {
-    // Biến lấy số lượng sản phẩm và tổng giá
-    const quantityInput = document.querySelector('#quantity'); // Nếu cần input số lượng
-    const totalElement = document.querySelector('.total');
-    const pricePerProduct = 560000; // Giá sản phẩm cố định (560,000 VND)
-    const submitButton = document.querySelector('.button');
 
-    // Kiểm tra số lượng sản phẩm và cập nhật tổng cộng
-    if (quantityInput) {
-        quantityInput.addEventListener('input', function () {
-            const quantity = parseInt(quantityInput.value) || 1; // Lấy giá trị hoặc mặc định là 1
-            const total = pricePerProduct * quantity; // Tính tổng
-            totalElement.textContent = `Tổng cộng: ${total.toLocaleString('vi-VN')} VND`; // Hiển thị tổng bằng định dạng tiền tệ
-        });
+document.addEventListener("DOMContentLoaded", function () {
+    const paymentMethods = document.getElementsByName("payment");
+    const bankDetails = document.getElementById("bank-details");
+    const quantityInput = document.querySelector("#quantity");
+    const totalElement = document.querySelector(".total");
+    const button = document.querySelector(".button");
+
+    const productPrice = 560000; // Giá sản phẩm
+
+    // Hàm cập nhật tổng giá
+    function updateTotal() {
+        const quantity = parseInt(quantityInput.value) || 1;
+        const total = productPrice * quantity;
+        totalElement.textContent = `Tổng cộng: ${total.toLocaleString('vi-VN')} VND`;
     }
 
-    // Kiểm tra form trước khi submit
-    submitButton.addEventListener('click', function (e) {
-        e.preventDefault(); // Ngăn chặn hành động mặc định (submit)
+    // Xử lý hiển thị thông tin chuyển khoản
+    function toggleBankDetails() {
+        const selectedPayment = document.querySelector('input[name="payment"]:checked').value;
 
-        const name = document.querySelector('#name-cus').value.trim();
-        const address = document.querySelector('#address').value.trim();
-        const phone = document.querySelector('#phone-number').value.trim();
-        const email = document.querySelector('#email').value.trim();
-
-        // Biến cờ kiểm tra lỗi
-        let errorMessage = '';
-
-        // Kiểm tra các trường
-        if (!name) {
-            errorMessage += 'Vui lòng nhập tên người nhận.\n';
-        }
-        if (!address) {
-            errorMessage += 'Vui lòng nhập địa chỉ.\n';
-        }
-        if (!phone.match(/^\d{10,11}$/)) {
-            errorMessage += 'Số điện thoại phải có 10-11 chữ số.\n';
-        }
-        if (!email.match(/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/)) {
-            errorMessage += 'Email không hợp lệ.\n';
-        }
-
-        // Nếu có lỗi, hiển thị thông báo
-        if (errorMessage) {
-            alert(errorMessage);
+        if (selectedPayment === "bank") {
+            bankDetails.style.display = "block"; // Hiển thị nếu chọn chuyển khoản
         } else {
-            // Nếu không có lỗi, xử lý thanh toán (giả sử)
-            alert('Thanh toán thành công! Cảm ơn bạn đã mua hàng.');
-            // Có thể thêm hành động gửi thông tin về server tại đây
+            bankDetails.style.display = "none"; // Ẩn nếu chọn thanh toán khi nhận hàng
+        }
+
+    }
+
+    // Xử lý sự kiện thay đổi phương thức thanh toán
+    paymentMethods.forEach((method) => {
+        method.addEventListener("change", toggleBankDetails);
+    });
+
+    // Xử lý khi số lượng thay đổi
+    quantityInput.addEventListener("input", updateTotal);
+
+    // Xử lý khi nhấn nút thanh toán
+    button.addEventListener("click", function () {
+        const quantity = parseInt(quantityInput.value) || 1;
+        const selectedMethod = Array.from(paymentMethods).find((method) => method.checked).value;
+
+        if (selectedMethod === "bank") {
+            alert(
+                `Bạn đã chọn thanh toán qua chuyển khoản. Vui lòng chuyển khoản ${productPrice * quantity} VND theo thông tin đã hiển thị.`
+            );
+        } else {
+            alert(`Thanh toán thành công khi nhận hàng! Tổng cộng là ${productPrice * quantity} VND.`);
         }
     });
+
+    // Khởi tạo giao diện
+    updateTotal();
+    toggleBankDetails();
 });
