@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Trang sản phẩm</title>
+  <link rel="stylesheet" href="san-pham.css">
+  <link rel="stylesheet" href="header.css">
+  <link rel="stylesheet" href="footer.css">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+</head>
+
+<body>
+<header>
+  <div class="brand">TTD SHOP</div>
+  <div class="auth-links">
+    <a href="#"><i class="fas fa-user-plus"></i> Đăng Ký</a>
+    <a href="#"><i class="fas fa-sign-in-alt"></i> Đăng Nhập</a>
+  </div>
+</header>
+
+<nav>
+  <a href="#">Trang Chủ</a>
+  <a href="#">Sản Phẩm</a>
+  <a href="#">Tin Tức</a>
+  <a href="#">Liên Hệ</a>
+
+  <div class="search-container">
+    <i class="fas fa-search"></i>
+    <span class="search-label">Tìm kiếm</span>
+    <input type="text" class="search-box" placeholder=" ">
+  </div>
+
+  <div class="cart">
+    <i class="fas fa-shopping-cart cart-icon"></i>
+    <a href="#" class="cart-text"> Giỏ Hàng</a>
+  </div>
+</nav>
+
+<div class="image-slider">
+  <div class="slides">
+    <div class="slide active">
+      <img src="https://miro.medium.com/v2/resize:fit:1400/1*i24ihnAIPWfiE_6PX5zCAg.jpeg" alt="Image 1">
+    </div>
+    <div class="slide">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcThSoJfJu-j_2dvGePLtBbyl7flS1GcMP1rrw&s" alt="Image 2">
+    </div>
+    <div class="slide">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSBfOgV2kvv2jPUzWo5nGuj4HKzgjyHKBfu3w&s" alt="Image 3">
+    </div>
+  </div>
+  <button class="prev" onclick="changeSlide(-1)">&#10094;</button>
+  <button class="next" onclick="changeSlide(1)">&#10095;</button>
+</div>
+
+<footer>
+
+  <div class="footer-:<contact">
+
+    <p><i class="fas fa-phone-alt"></i> Điện thoại:012 345 678</a></p>
+    <p><i class="fas fa-envelope"></i> Email:ttdshop@gmail.com</a></p>
+  </div>
+
+  <div class="footer-content">
+    <div class="footer-links">
+      <a href="#">Giới Thiệu</a> |
+      <a href="#">Điều Khoản</a> |
+      <a href="#">Chính Sách Bảo Mật</a>
+      <p>&copy; 2024 TTD Shop. Tất cả quyền được bảo lưu.</p>
+    </div>
+  </div>
+</footer>
+<script src="san-pham.js"></script>
+
+</body>
+</html>
