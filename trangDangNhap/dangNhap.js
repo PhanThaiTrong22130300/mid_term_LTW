@@ -87,3 +87,14 @@ window.addEventListener('load', function () {
         document.getElementById('remember').checked = true;
     }
 });
+
+// Xử lý chuyển trang đăng ký
+document.querySelector('.auth-links a[href="../trangDangKy/dangKy.html"]').addEventListener('click', function (e) {
+    e.preventDefault();
+    window.location.href = '../trangDangKy/dangKy.html';
+});
+
+document.querySelector('.register-link a').addEventListener('click', function (e) {
+    e.preventDefault();
+    window.location.href = '../trangDangKy/dangKy.html';
+});

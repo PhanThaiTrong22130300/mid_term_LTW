@@ -51,6 +51,18 @@ function initializeEventListeners() {
     // Social login
     socialButtons.facebook.addEventListener('click', () => handleSocialLogin('Facebook'));
     socialButtons.google.addEventListener('click', () => handleSocialLogin('Google'));
+
+    // Xử lý nút đăng nhập ở header
+    document.querySelector('.auth-links a[href="#"]').addEventListener('click', function (e) {
+        e.preventDefault();
+        window.location.href = '../trangDangNhap/dangNhap.html';
+    });
+
+    // Xử lý link đăng nhập ngay
+    document.querySelector('.login-link a').addEventListener('click', function (e) {
+        e.preventDefault();
+        window.location.href = '../trangDangNhap/dangNhap.html';
+    });
 }
 
 // Form Handling
