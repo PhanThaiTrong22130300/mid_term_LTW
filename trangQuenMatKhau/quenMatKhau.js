@@ -53,3 +53,43 @@ document.getElementById('verificationForm').addEventListener('submit', function 
 
     showStep(3);
 });
+// Xử lý đổi mật khẩu
+document.getElementById('newPasswordForm').addEventListener('submit', function (e) {
+    e.preventDefault();
+    const newPassword = document.getElementById('newPassword').value;
+    const confirmPassword = document.getElementById('confirmPassword').value;
+    const passwordError = document.getElementById('passwordError');
+
+    if (newPassword !== confirmPassword) {
+        passwordError.style.display = 'block';
+        passwordError.textContent = 'Mật khẩu không khớp';
+        return;
+    }
+
+    // Kiểm tra yêu cầu mật khẩu
+    const passwordRegex = /^(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+    if (!passwordRegex.test(newPassword)) {
+        passwordError.style.display = 'block';
+        passwordError.textContent = 'Mật khẩu không đáp ứng yêu cầu';
+        return;
+    }
+
+    alert('Đổi mật khẩu thành công!');
+    window.location.href = 'dangNhap.html';
+});
+
+// Xử lý hiện/ẩn mật khẩu
+document.querySelectorAll('.toggle-password').forEach(toggle => {
+    toggle.addEventListener('click', function () {
+        const input = this.previousElementSibling;
+        if (input.type === 'password') {
+            input.type = 'text';
+            this.classList.remove('fa-eye');
+            this.classList.add('fa-eye-slash');
+        } else {
+            input.type = 'password';
+            this.classList.remove('fa-eye-slash');
+            this.classList.add('fa-eye');
+        }
+    });
+});
