@@ -152,29 +152,36 @@ function validateForm(data) {
 
 function showError(inputId, message) {
     const input = document.getElementById(inputId);
-    const errorDiv = document.createElement('div');
-    errorDiv.className = 'error-message';
-    errorDiv.textContent = message;
+    const container = inputId === 'terms' ? input.closest('.checkbox-container') : input.parentElement;
 
     // Xóa thông báo lỗi cũ nếu có
-    const existingError = input.parentElement.querySelector('.error-message');
+    const existingError = container.querySelector('.error-message');
     if (existingError) {
         existingError.remove();
     }
 
-    // Thêm thông báo lỗi mới
-    if (inputId === 'terms') {
-        input.parentElement.parentElement.appendChild(errorDiv);
-    } else {
-        input.parentElement.appendChild(errorDiv);
-    }
+    // Tạo và thêm thông báo lỗi mới
+    const errorDiv = document.createElement('div');
+    errorDiv.className = 'error-message';
+    errorDiv.textContent = message;
+    container.appendChild(errorDiv);
     input.classList.add('error');
 
-    // Xóa thông báo lỗi khi focus vào input
-    input.addEventListener('focus', function () {
-        errorDiv.remove();
-        input.classList.remove('error');
-    });
+    // Xóa thông báo lỗi khi checkbox được check
+    if (inputId === 'terms') {
+        input.addEventListener('change', function () {
+            if (this.checked) {
+                errorDiv.remove();
+                input.classList.remove('error');
+            }
+        });
+    } else {
+        // Xóa thông báo lỗi khi focus vào input
+        input.addEventListener('focus', function () {
+            errorDiv.remove();
+            input.classList.remove('error');
+        });
+    }
 }
 
 async function submitForm(data) {
