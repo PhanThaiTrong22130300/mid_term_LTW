@@ -1,3 +1,48 @@
+// Constants
+const VALIDATION_MESSAGES = {
+    required: 'Vui lòng điền thông tin này',
+    email: 'Vui lòng nhập email hợp lệ',
+    code: 'Vui lòng nhập đủ 6 số',
+    password: {
+        required: 'Vui lòng nhập mật khẩu',
+        invalid: 'Mật khẩu phải có ít nhất 8 ký tự, 1 chữ hoa, 1 số và 1 ký tự đặc biệt',
+        mismatch: 'Mật khẩu không khớp'
+    }
+};
+
+// Thêm hàm validate riêng cho từng loại input
+function validateEmail(email) {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!email.trim()) {
+        return VALIDATION_MESSAGES.required;
+    }
+    if (!emailRegex.test(email)) {
+        return VALIDATION_MESSAGES.email;
+    }
+    return '';
+}
+
+function validateVerificationCode(code) {
+    if (code.length !== 6) {
+        return VALIDATION_MESSAGES.code;
+    }
+    return '';
+}
+
+function validatePassword(password, confirmPassword) {
+    if (!password) {
+        return VALIDATION_MESSAGES.password.required;
+    }
+    const passwordRegex = /^(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+    if (!passwordRegex.test(password)) {
+        return VALIDATION_MESSAGES.password.invalid;
+    }
+    if (confirmPassword !== undefined && password !== confirmPassword) {
+        return VALIDATION_MESSAGES.password.mismatch;
+    }
+    return '';
+}
+
 // Xử lý chuyển bước
 function showStep(stepNumber) {
     document.querySelectorAll('.step').forEach(step => step.classList.remove('active'));
@@ -13,15 +58,17 @@ document.getElementById('emailForm').addEventListener('submit', function (e) {
     const email = document.getElementById('email').value;
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-    if (!emailRegex.test(email)) {
-        document.getElementById('emailError').style.display = 'block';
-        document.getElementById('emailError').textContent = 'Email không hợp lệ';
+    if (!email.trim()) {
+        showError('email', VALIDATION_MESSAGES.required);
+        return;
+    } else if (!emailRegex.test(email)) {
+        showError('email', VALIDATION_MESSAGES.email);
         return;
     }
 
-    // Giả lập gửi mã xác nhận
     showStep(2);
 });
+
 // Xử lý nhập mã xác nhận
 const verificationInputs = document.querySelectorAll('.verification-code input');
 verificationInputs.forEach((input, index) => {
@@ -40,45 +87,79 @@ verificationInputs.forEach((input, index) => {
     });
 });
 
+// Xử lý form mã xác nhận
 document.getElementById('verificationForm').addEventListener('submit', function (e) {
     e.preventDefault();
     let code = '';
     verificationInputs.forEach(input => code += input.value);
 
     if (code.length !== 6) {
-        document.getElementById('codeError').style.display = 'block';
-        document.getElementById('codeError').textContent = 'Vui lòng nhập đủ 6 số';
+        showError('codeError', VALIDATION_MESSAGES.code);
         return;
     }
 
     showStep(3);
 });
-// Xử lý đổi mật khẩu
+
+// Xử lý form mật khẩu mới
 document.getElementById('newPasswordForm').addEventListener('submit', function (e) {
     e.preventDefault();
     const newPassword = document.getElementById('newPassword').value;
     const confirmPassword = document.getElementById('confirmPassword').value;
-    const passwordError = document.getElementById('passwordError');
 
-    if (newPassword !== confirmPassword) {
-        passwordError.style.display = 'block';
-        passwordError.textContent = 'Mật khẩu không khớp';
+    if (!newPassword) {
+        showError('newPassword', VALIDATION_MESSAGES.password.required);
         return;
     }
 
-    // Kiểm tra yêu cầu mật khẩu
     const passwordRegex = /^(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
     if (!passwordRegex.test(newPassword)) {
-        passwordError.style.display = 'block';
-        passwordError.textContent = 'Mật khẩu không đáp ứng yêu cầu';
+        showError('newPassword', VALIDATION_MESSAGES.password.invalid);
+        return;
+    }
+
+    if (newPassword !== confirmPassword) {
+        showError('confirmPassword', VALIDATION_MESSAGES.password.mismatch);
         return;
     }
 
     alert('Đổi mật khẩu thành công!');
-    window.location.href = 'dangNhap.html';
+    window.location.href = '../trangDangNhap/dangNhap.html';
 });
 
+function showError(inputId, message) {
+    const input = document.getElementById(inputId);
+    const errorDiv = document.createElement('div');
+    errorDiv.className = 'error-message';
+    errorDiv.textContent = message;
 
+    // Xóa thông báo lỗi cũ nếu có
+    const existingError = input.parentElement.querySelector('.error-message');
+    if (existingError) {
+        existingError.remove();
+    }
+
+    // Thêm thông báo lỗi mới
+    input.parentElement.appendChild(errorDiv);
+    input.classList.add('error');
+
+    // Xóa thông báo lỗi khi focus vào input
+    input.addEventListener('focus', function () {
+        errorDiv.remove();
+        input.classList.remove('error');
+    });
+}
+
+// Xử lý hiện/ẩn mật khẩu
+document.querySelectorAll('.toggle-password').forEach(toggle => {
+    toggle.addEventListener('click', function () {
+        const input = this.previousElementSibling;
+        const type = input.getAttribute('type') === 'password' ? 'text' : 'password';
+        input.setAttribute('type', type);
+        this.classList.toggle('fa-eye');
+        this.classList.toggle('fa-eye-slash');
+    });
+});
 
 
 
@@ -102,4 +183,26 @@ document.addEventListener('keydown', function (e) {
             window.location.href = '../trangDangNhap/dangNhap.html';
         }
     }
+});
+
+// Xử lý validation cho các input
+document.querySelectorAll('input').forEach(input => {
+    input.addEventListener('invalid', (e) => {
+        e.preventDefault();
+        let errorMessage = VALIDATION_MESSAGES.required;
+
+        if (input.type === 'email') {
+            errorMessage = validateEmail(input.value);
+        } else if (input.closest('.verification-code')) {
+            errorMessage = validateVerificationCode(input.value);
+        } else if (input.type === 'password') {
+            const confirmPassword = input.id === 'confirmPassword' ?
+                document.getElementById('newPassword').value : undefined;
+            errorMessage = validatePassword(input.value, confirmPassword);
+        }
+
+        if (errorMessage) {
+            showError(input.id || 'codeError', errorMessage);
+        }
+    });
 });
