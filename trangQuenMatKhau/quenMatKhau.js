@@ -94,25 +94,40 @@ document.querySelectorAll('.toggle-password').forEach(toggle => {
     });
 });
 
-// Thêm xử lý nút quay lại trang đăng nhập
+// Thêm đoạn code này vào cuối file
+// Xử lý nút quay lại trang đăng nhập
 document.querySelector('.back-to-login').addEventListener('click', function (e) {
     e.preventDefault();
-    // Hiển thị hộp thoại xác nhận
     const isConfirmed = confirm('Bạn có chắc muốn quay lại trang đăng nhập? Các thông tin đã nhập sẽ không được lưu.');
 
     if (isConfirmed) {
-        // Nếu người dùng xác nhận, chuyển về trang đăng nhập
-        window.location.href = 'dangNhap.html';
+        window.location.href = '../trangDangNhap/dangNhap.html';
     }
 });
 
-// Thêm xử lý phím ESC để quay lại
+// Xử lý phím ESC
 document.addEventListener('keydown', function (e) {
     if (e.key === 'Escape') {
         const isConfirmed = confirm('Bạn có chắc muốn quay lại trang đăng nhập? Các thông tin đã nhập sẽ không được lưu.');
 
         if (isConfirmed) {
-            window.location.href = 'dangNhap.html';
+            window.location.href = '../trangDangNhap/dangNhap.html';
         }
     }
+});
+
+// Xử lý hiện/ẩn mật khẩu
+document.querySelectorAll('.toggle-password').forEach(toggle => {
+    toggle.addEventListener('click', function () {
+        const input = this.previousElementSibling;
+        if (input.type === 'password') {
+            input.type = 'text';
+            this.classList.remove('fa-eye');
+            this.classList.add('fa-eye-slash');
+        } else {
+            input.type = 'password';
+            this.classList.remove('fa-eye-slash');
+            this.classList.add('fa-eye');
+        }
+    });
 });
