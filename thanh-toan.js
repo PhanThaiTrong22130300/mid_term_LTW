@@ -6,9 +6,8 @@ document.addEventListener("DOMContentLoaded", function () {
     const totalElement = document.querySelector(".total");
     const button = document.querySelector(".button");
 
-    const productPrice = 560000; // Giá sản phẩm
+    const productPrice = 560000; 
 
-    // Hàm cập nhật tổng giá
     function updateTotal() {
         const quantity = parseInt(quantityInput.value) || 1;
         const total = productPrice * quantity;
@@ -49,7 +48,6 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 
-    // Khởi tạo giao diện
     updateTotal();
     toggleBankDetails();
 });

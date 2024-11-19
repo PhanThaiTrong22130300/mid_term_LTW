@@ -26,10 +26,11 @@
                 <p>Vui lòng nhập email của bạn để nhận mã xác nhận</p>
             </div>
 
-            <form id="emailForm">
+            <form id="emailForm" novalidate>
                 <div class="form-group">
                     <label for="email">Email</label>
-                    <input type="email" id="email" name="email" required>
+
+                    <input type="email" id="email" name="email" required placeholder="Nhập email của bạn">
                     <div class="error-message" id="emailError"></div>
                 </div>
                 <button type="submit" class="submit-btn">Gửi Mã Xác Nhận</button>
@@ -42,14 +43,32 @@
                 <p>Vui lòng nhập mã 6 số đã được gửi đến email của bạn</p>
             </div>
 
-            <form id="verificationForm">
+            <form id="verificationForm" novalidate>
                 <div class="verification-code">
-                    <input type="text" maxlength="1" pattern="\d" required>
-                    <input type="text" maxlength="1" pattern="\d" required>
-                    <input type="text" maxlength="1" pattern="\d" required>
-                    <input type="text" maxlength="1" pattern="\d" required>
-                    <input type="text" maxlength="1" pattern="\d" required>
-                    <input type="text" maxlength="1" pattern="\d" required>
+                    <div class="input-group">
+                        <input type="text" maxlength="1" pattern="\d" required>
+                        <div class="error-message"></div>
+                    </div>
+                    <div class="input-group">
+                        <input type="text" maxlength="1" pattern="\d" required>
+                        <div class="error-message"></div>
+                    </div>
+                    <div class="input-group">
+                        <input type="text" maxlength="1" pattern="\d" required>
+                        <div class="error-message"></div>
+                    </div>
+                    <div class="input-group">
+                        <input type="text" maxlength="1" pattern="\d" required>
+                        <div class="error-message"></div>
+                    </div>
+                    <div class="input-group">
+                        <input type="text" maxlength="1" pattern="\d" required>
+                        <div class="error-message"></div>
+                    </div>
+                    <div class="input-group">
+                        <input type="text" maxlength="1" pattern="\d" required>
+                        <div class="error-message"></div>
+                    </div>
                 </div>
                 <div class="error-message" id="codeError"></div>
                 <button type="submit" class="submit-btn">Xác Nhận</button>
@@ -63,13 +82,14 @@
                 <p>Vui lòng nhập mật khẩu mới của bạn</p>
             </div>
 
-            <form id="newPasswordForm">
+            <form id="newPasswordForm" novalidate>
                 <div class="form-group">
                     <label for="newPassword">Mật khẩu mới</label>
                     <div class="password-input">
-                        <input type="password" id="newPassword" required>
+                        <input type="password" id="newPassword" required placeholder="Nhập mật khẩu mới">
 
                     </div>
+                    <div class="error-message" id="newPasswordError"></div>
                     <div class="password-requirements">
                         <ul>
                             <li><i class="fas fa-check"></i>Ít nhất 8 ký tự</li>
@@ -83,9 +103,10 @@
                 <div class="form-group">
                     <label for="confirmPassword">Xác nhận mật khẩu</label>
                     <div class="password-input">
-                        <input type="password" id="confirmPassword" required>
+                        <input type="password" id="confirmPassword" required placeholder="Nhập lại mật khẩu">
+
                     </div>
-                    <div class="error-message" id="passwordError"></div>
+                    <div class="error-message" id="confirmPasswordError"></div>
                 </div>
 
                 <button type="submit" class="submit-btn">Đổi Mật Khẩu</button>
