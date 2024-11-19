@@ -25,3 +25,26 @@ document.getElementById('loginForm').addEventListener('submit', function (e) {
     alert('Đăng nhập thành công!');
     window.location.href = '../trang-chu.html';
 });
+// Hiển thị lỗi
+function showError(inputId, message) {
+    const input = document.getElementById(inputId);
+    const errorDiv = document.createElement('div');
+    errorDiv.className = 'error-message';
+    errorDiv.textContent = message;
+
+    // Xóa thông báo lỗi cũ nếu có
+    const existingError = input.parentElement.querySelector('.error-message');
+    if (existingError) {
+        existingError.remove();
+    }
+
+    // Thêm thông báo lỗi mới
+    input.parentElement.appendChild(errorDiv);
+    input.classList.add('error');
+
+    // Xóa thông báo lỗi khi focus vào input
+    input.addEventListener('focus', function () {
+        errorDiv.remove();
+        input.classList.remove('error');
+    });
+}
