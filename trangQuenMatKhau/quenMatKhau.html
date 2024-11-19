@@ -33,6 +33,26 @@
                 <button type="submit" class="submit-btn">Gửi Mã Xác Nhận</button>
             </form>
         </div>
+        <!-- Bước 2: Nhập Mã Xác Nhận -->
+        <div class="step" id="step2">
+            <div class="header">
+                <h1>Nhập Mã Xác Nhận</h1>
+                <p>Vui lòng nhập mã 6 số đã được gửi đến email của bạn</p>
+            </div>
+
+            <form id="verificationForm">
+                <div class="verification-code">
+                    <input type="text" maxlength="1" pattern="\d" required>
+                    <input type="text" maxlength="1" pattern="\d" required>
+                    <input type="text" maxlength="1" pattern="\d" required>
+                    <input type="text" maxlength="1" pattern="\d" required>
+                    <input type="text" maxlength="1" pattern="\d" required>
+                    <input type="text" maxlength="1" pattern="\d" required>
+                </div>
+                <div class="error-message" id="codeError"></div>
+                <button type="submit" class="submit-btn">Xác Nhận</button>
+            </form>
+        </div>
 
 
 
