@@ -370,11 +370,20 @@ footer {
 }
 
 .error-message {
-    color: var(--error-color);
+    color: #dc3545;
     font-size: 0.8rem;
-    margin-top: 0.3rem;
+    margin-top: 0.25rem;
+    display: block;
 }
 
-.error {
-    border-color: var(--error-color) !important;
+.form-group input.error {
+    border-color: #dc3545;
+}
+
+.form-group input.error:focus {
+    box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.25);
+}
+
+.form-group.has-error .error-message {
+    display: block;
 }
