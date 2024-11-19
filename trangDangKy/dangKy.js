@@ -104,8 +104,77 @@ function getFormData() {
 }
 
 function validateForm(data) {
-    // Add your validation logic here
-    return true;
+    const errors = [];
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    const passwordRegex = /^(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+
+    // Validate fullname
+    if (!data.fullname.trim()) {
+        showError('fullname', VALIDATION_MESSAGES.required);
+        errors.push('fullname');
+    }
+
+    // Validate email
+    if (!data.email.trim()) {
+        showError('email', VALIDATION_MESSAGES.required);
+        errors.push('email');
+    } else if (!emailRegex.test(data.email)) {
+        showError('email', VALIDATION_MESSAGES.email);
+        errors.push('email');
+    }
+
+    // Validate password
+    if (!data.password) {
+        showError('password', VALIDATION_MESSAGES.required);
+        errors.push('password');
+    } else if (!passwordRegex.test(data.password)) {
+        showError('password', 'Mật khẩu phải có ít nhất 8 ký tự, 1 chữ hoa, 1 số và 1 ký tự đặc biệt');
+        errors.push('password');
+    }
+
+    // Validate confirm password
+    if (!data.confirmPassword) {
+        showError('confirmPassword', VALIDATION_MESSAGES.required);
+        errors.push('confirmPassword');
+    } else if (data.password !== data.confirmPassword) {
+        showError('confirmPassword', VALIDATION_MESSAGES.confirmPassword);
+        errors.push('confirmPassword');
+    }
+
+    // Validate terms
+    if (!data.terms) {
+        showError('terms', VALIDATION_MESSAGES.terms);
+        errors.push('terms');
+    }
+
+    return errors.length === 0;
+}
+
+function showError(inputId, message) {
+    const input = document.getElementById(inputId);
+    const errorDiv = document.createElement('div');
+    errorDiv.className = 'error-message';
+    errorDiv.textContent = message;
+
+    // Xóa thông báo lỗi cũ nếu có
+    const existingError = input.parentElement.querySelector('.error-message');
+    if (existingError) {
+        existingError.remove();
+    }
+
+    // Thêm thông báo lỗi mới
+    if (inputId === 'terms') {
+        input.parentElement.parentElement.appendChild(errorDiv);
+    } else {
+        input.parentElement.appendChild(errorDiv);
+    }
+    input.classList.add('error');
+
+    // Xóa thông báo lỗi khi focus vào input
+    input.addEventListener('focus', function () {
+        errorDiv.remove();
+        input.classList.remove('error');
+    });
 }
 
 async function submitForm(data) {

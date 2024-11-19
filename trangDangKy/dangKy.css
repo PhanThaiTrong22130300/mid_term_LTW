@@ -316,3 +316,17 @@ footer {
 .login-link p {
     color: var(--secondary-color);
 }
+
+.error-message {
+    color: #dc3545;
+    font-size: 0.8rem;
+    margin-top: 0.25rem;
+}
+
+input.error {
+    border-color: #dc3545;
+}
+
+.checkbox-container .error-message {
+    margin-left: 1.5rem;
+}
