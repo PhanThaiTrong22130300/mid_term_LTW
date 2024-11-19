@@ -368,3 +368,13 @@ footer {
         padding: var(--spacing-xs) 0;
     }
 }
+
+.error-message {
+    color: var(--error-color);
+    font-size: 0.8rem;
+    margin-top: 0.3rem;
+}
+
+.error {
+    border-color: var(--error-color) !important;
+}

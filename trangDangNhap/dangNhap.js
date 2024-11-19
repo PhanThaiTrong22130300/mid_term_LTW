@@ -20,9 +20,12 @@ document.getElementById('loginForm').addEventListener('submit', function (e) {
         return;
     }
 
-    // Giả lập đăng nhập thành công
-    console.log('Đăng nhập với:', { email, password, remember });
-    alert('Đăng nhập thành công!');
+    // Lưu thông tin đăng nhập nếu được chọn
+    if (remember) {
+        saveLoginInfo(email, remember);
+    }
+
+    // Chuyển hướng đến trang chủ
     window.location.href = '../trang-chu.html';
 });
 // Hiển thị lỗi
@@ -48,3 +51,39 @@ function showError(inputId, message) {
         input.classList.remove('error');
     });
 }
+
+// Xử lý nút quên mật khẩu
+document.querySelector('.forgot-password').addEventListener('click', function (e) {
+    e.preventDefault();
+    window.location.href = '../trangQuenMatKhau/quenMatKhau.html';
+});
+
+// Xử lý đăng nhập với Facebook
+document.querySelector('.facebook-btn').addEventListener('click', function () {
+    // Thêm code xử lý đăng nhập Facebook ở đây
+    alert('Tính năng đang được phát triển!');
+});
+
+// Xử lý đăng nhập với Google
+document.querySelector('.google-btn').addEventListener('click', function () {
+    // Thêm code xử lý đăng nhập Google ở đây
+    alert('Tính năng đang được phát triển!');
+});
+
+// Lưu thông tin đăng nhập nếu chọn "Ghi nhớ đăng nhập"
+function saveLoginInfo(email, remember) {
+    if (remember) {
+        localStorage.setItem('savedEmail', email);
+    } else {
+        localStorage.removeItem('savedEmail');
+    }
+}
+
+// Khôi phục thông tin đăng nhập đã lưu
+window.addEventListener('load', function () {
+    const savedEmail = localStorage.getItem('savedEmail');
+    if (savedEmail) {
+        document.getElementById('email').value = savedEmail;
+        document.getElementById('remember').checked = true;
+    }
+});
