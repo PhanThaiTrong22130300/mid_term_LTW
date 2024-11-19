@@ -13,9 +13,8 @@ document.addEventListener('DOMContentLoaded', () => {
     initializeEventListeners();
 });
 
-// Element Initialization
+// Element Initialization 
 function initializeElements() {
-    // Cache DOM elements
     window.elements = {
         form: document.getElementById('registerForm'),
         inputs: {
@@ -31,9 +30,6 @@ function initializeElements() {
             google: document.querySelector('.google-btn')
         }
     };
-
-    // Setup form validation
-    setupFormValidation();
 }
 
 // Event Listeners
@@ -52,17 +48,24 @@ function initializeEventListeners() {
     socialButtons.facebook.addEventListener('click', () => handleSocialLogin('Facebook'));
     socialButtons.google.addEventListener('click', () => handleSocialLogin('Google'));
 
-    // Xử lý nút đăng nhập ở header
-    document.querySelector('.auth-links a[href="#"]').addEventListener('click', function (e) {
-        e.preventDefault();
-        window.location.href = '../trangDangNhap/dangNhap.html';
-    });
+    // Navigation
+    initializeNavigation();
+}
 
-    // Xử lý link đăng nhập ngay
-    document.querySelector('.login-link a').addEventListener('click', function (e) {
-        e.preventDefault();
-        window.location.href = '../trangDangNhap/dangNhap.html';
-    });
+// Navigation Handlers
+function initializeNavigation() {
+    // Header login button
+    document.querySelector('.auth-links a[href="#"]')
+        .addEventListener('click', navigateToLogin);
+
+    // Login link
+    document.querySelector('.login-link a')
+        .addEventListener('click', navigateToLogin);
+}
+
+function navigateToLogin(e) {
+    e.preventDefault();
+    window.location.href = '../trangDangNhap/dangNhap.html';
 }
 
 // Form Handling
@@ -75,8 +78,42 @@ async function handleFormSubmit(e) {
     }
 }
 
-// Utility Functions
-function showNotification(message, type = 'error') {
-    // Implement your notification system here
-    alert(message);
+function handlePasswordToggle() {
+    const input = this.previousElementSibling;
+    const type = input.type === 'password' ? 'text' : 'password';
+    input.type = type;
+
+    this.classList.toggle('fa-eye');
+    this.classList.toggle('fa-eye-slash');
+}
+
+function handleSocialLogin(platform) {
+    alert(`Tính năng đăng nhập bằng ${platform} đang được phát triển!`);
+}
+
+// Form Utilities
+function getFormData() {
+    const { inputs } = window.elements;
+    return {
+        fullname: inputs.fullname.value,
+        email: inputs.email.value,
+        password: inputs.password.value,
+        confirmPassword: inputs.confirmPassword.value,
+        terms: inputs.terms.checked
+    };
+}
+
+function validateForm(data) {
+    // Add your validation logic here
+    return true;
+}
+
+async function submitForm(data) {
+    try {
+        // Add your form submission logic here
+        console.log('Form submitted:', data);
+        window.location.href = '../trangDangNhap/dangNhap.html';
+    } catch (error) {
+        console.error('Error submitting form:', error);
+    }
 }

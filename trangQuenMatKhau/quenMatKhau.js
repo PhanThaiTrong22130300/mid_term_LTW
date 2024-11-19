@@ -78,23 +78,11 @@ document.getElementById('newPasswordForm').addEventListener('submit', function (
     window.location.href = 'dangNhap.html';
 });
 
-// Xử lý hiện/ẩn mật khẩu
-document.querySelectorAll('.toggle-password').forEach(toggle => {
-    toggle.addEventListener('click', function () {
-        const input = this.previousElementSibling;
-        if (input.type === 'password') {
-            input.type = 'text';
-            this.classList.remove('fa-eye');
-            this.classList.add('fa-eye-slash');
-        } else {
-            input.type = 'password';
-            this.classList.remove('fa-eye-slash');
-            this.classList.add('fa-eye');
-        }
-    });
-});
 
-// Thêm đoạn code này vào cuối file
+
+
+
+
 // Xử lý nút quay lại trang đăng nhập
 document.querySelector('.back-to-login').addEventListener('click', function (e) {
     e.preventDefault();
@@ -114,20 +102,4 @@ document.addEventListener('keydown', function (e) {
             window.location.href = '../trangDangNhap/dangNhap.html';
         }
     }
-});
-
-// Xử lý hiện/ẩn mật khẩu
-document.querySelectorAll('.toggle-password').forEach(toggle => {
-    toggle.addEventListener('click', function () {
-        const input = this.previousElementSibling;
-        if (input.type === 'password') {
-            input.type = 'text';
-            this.classList.remove('fa-eye');
-            this.classList.add('fa-eye-slash');
-        } else {
-            input.type = 'password';
-            this.classList.remove('fa-eye-slash');
-            this.classList.add('fa-eye');
-        }
-    });
 });
