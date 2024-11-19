@@ -1,3 +1,10 @@
+// Constants
+const VALIDATION_MESSAGES = {
+    required: 'Vui lòng điền thông tin này',
+    email: 'Vui lòng nhập email hợp lệ',
+    password: 'Mật khẩu phải có ít nhất 6 ký tự'
+};
+
 // Xử lý form đăng nhập
 document.getElementById('loginForm').addEventListener('submit', function (e) {
     e.preventDefault();
@@ -9,14 +16,20 @@ document.getElementById('loginForm').addEventListener('submit', function (e) {
 
     // Validate email
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(email)) {
-        showError('email', 'Email không hợp lệ');
+    if (!email.trim()) {
+        showError('email', VALIDATION_MESSAGES.required);
+        return;
+    } else if (!emailRegex.test(email)) {
+        showError('email', VALIDATION_MESSAGES.email);
         return;
     }
 
     // Validate password
-    if (password.length < 6) {
-        showError('password', 'Mật khẩu phải có ít nhất 6 ký tự');
+    if (!password) {
+        showError('password', VALIDATION_MESSAGES.required);
+        return;
+    } else if (password.length < 6) {
+        showError('password', VALIDATION_MESSAGES.password);
         return;
     }
 
