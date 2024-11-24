@@ -114,3 +114,48 @@ input[type="tel"] {
     font-size: 14px;
     color: #333;
 }
+
+
+.order-button-container {
+    display: flex;
+    justify-content: flex-end;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.continue-shopping-button {
+    text-decoration: none;
+}
+
+.continue-shopping-btn {
+    font-size: 16px;
+    padding: 15px;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 200px;
+    transition: background-color 0.3s ease;
+    order: 2;
+}
+
+.continue-shopping-btn:hover {
+    background-color: #0056b3;
+}
+
+.button {
+    font-size: 16px;
+    padding: 15px;
+    background-color: #28a745;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 200px;
+    transition: background-color 0.3s ease;
+    order: 1;
+}
+
+.button:hover {
+    background-color: #218838;
+}
