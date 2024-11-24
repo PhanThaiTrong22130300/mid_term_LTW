@@ -75,3 +75,42 @@ th {
     color: #d32f2f;
 }
 
+
+.section {
+    margin-bottom: 20px;
+}
+
+label{
+    display: block;
+    margin-bottom: 10px;
+    font-weight: lighter;
+}
+
+.section input[type="number"]{
+    width: 60px;
+    padding: 5px;
+    border: 1px solid #333;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.section input[type="text"],
+input[type="email"],
+input[type="tel"] {
+    width: 90%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #333;
+    border-radius: 5px;
+}
+
+#bank-details {
+    display: none;
+    margin-top: 20px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    padding: 15px;
+    border-radius: 5px;
+    font-size: 14px;
+    color: #333;
+}
