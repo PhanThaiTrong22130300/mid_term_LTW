@@ -27,6 +27,19 @@ function updateTotalPrice() {
     }
 }
 
+// Thêm sự kiện cho nút xóa
+function addDeleteEventListeners() {
+    const deleteButtons = document.querySelectorAll('.delete-btn');
+
+    deleteButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            const row = button.closest('tr'); // Lấy dòng sản phẩm (tr) chứa nút xóa
+            row.remove(); // Xóa dòng sản phẩm khỏi bảng
+            updateTotalPrice(); // Cập nhật lại tổng giỏ hàng
+        });
+    });
+}
+
 // Lắng nghe sự kiện thay đổi số lượng sản phẩm
 document.querySelectorAll('input[type="number"]').forEach(input => {
     input.addEventListener('input', updateTotalPrice);
@@ -34,4 +47,5 @@ document.querySelectorAll('input[type="number"]').forEach(input => {
 
 window.addEventListener('load', function() {
     updateTotalPrice();
+    addDeleteEventListeners(); // Thêm sự kiện xóa khi trang tải xong
 });
