@@ -1,16 +1,14 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="vi">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Dashboard</title>
+    <title>TTD Shop - Admin</title>
     <link rel="stylesheet" href="admin.css">
-    <script src="admin.js"></script>
-
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <script src="admin.js" defer></script>
 </head>
-
 
 <body>
     <div class="admin-container">
@@ -21,29 +19,31 @@
                 <span>TTD Admin</span>
             </div>
             <nav>
-                <a href="#" class="active">
+                <a href="#dashboard" class="active" data-section="dashboard">
                     <i class="fas fa-home"></i>
                     <span>Trang chủ</span>
                 </a>
-                <a href="#">
+                <a href="#products" data-section="products">
                     <i class="fas fa-box"></i>
                     <span>Sản phẩm</span>
                 </a>
-                <a href="#">
+                <a href="#users" data-section="users">
                     <i class="fas fa-users"></i>
                     <span>Người dùng</span>
                 </a>
-                <a href="#">
+                <a href="#orders" data-section="orders">
                     <i class="fas fa-shopping-cart"></i>
                     <span>Đơn hàng</span>
                 </a>
-
-
+                <a href="#revenue" data-section="revenue">
+                    <i class="fas fa-chart-line"></i>
+                    <span>Doanh thu</span>
+                </a>
             </nav>
         </div>
+
         <!-- Main Content -->
         <div class="main-content">
-            <!-- Header -->
             <header>
                 <div class="search-bar">
                     <i class="fas fa-search"></i>
@@ -53,79 +53,104 @@
                     <div class="notifications">
                         <i class="fas fa-bell"></i>
                         <span class="badge">3</span>
+                        <div class="notifications-dropdown">
+                            <div class="notification-item">
+                                <i class="fas fa-shopping-cart"></i>
+                                <span>Đơn hàng mới </span>
+                            </div>
+                            <div class="notification-item">
+                                <i class="fas fa-user"></i>
+                                <span>Người dùng mới đăng ký</span>
+                            </div>
+                            <div class="notification-item">
+                                <i class="fas fa-exclamation-circle"></i>
+                                <span>Cảnh báo hết hàng</span>
+                            </div>
+                        </div>
                     </div>
                     <div class="admin-profile">
 
                         <span>Admin</span>
                         <i class="fas fa-chevron-down"></i>
+                        <div class="profile-dropdown">
+                            <a href="#"><i class="fas fa-user"></i> Thông tin</a>
+                            <a href="#"><i class="fas fa-cog"></i> Cài đặt</a>
+                            <a href="../trangDangNhap/dangNhap.html">
+                                <i class="fas fa-sign-out-alt"></i> Đăng xuất
+                            </a>
+                        </div>
                     </div>
                 </div>
             </header>
 
-            <!-- Dashboard Content -->
-            <div class="dashboard">
-                <!-- Stats Cards -->
+            <!-- Dashboard -->
+            <div id="dashboard" class="content-section active">
                 <div class="stats-container">
                     <div class="stat-card">
-                        <div class="stat-icon" style="background-color: #4CAF50;">
+                        <div class="stat-icon" style="background-color: var(--success-color);">
                             <i class="fas fa-shopping-cart"></i>
                         </div>
                         <div class="stat-info">
                             <h3>Đơn hàng</h3>
                             <p>150</p>
-                            <span class="trend positive">
-                                <i class="fas fa-arrow-up"></i>
-                                15%
-                            </span>
                         </div>
                     </div>
                     <div class="stat-card">
-                        <div class="stat-icon" style="background-color: #2196F3;">
+                        <div class="stat-icon" style="background-color: var(--primary-color);">
                             <i class="fas fa-users"></i>
                         </div>
                         <div class="stat-info">
                             <h3>Người dùng</h3>
                             <p>1,250</p>
-                            <span class="trend positive">
-                                <i class="fas fa-arrow-up"></i>
-                                8%
-                            </span>
                         </div>
                     </div>
                     <div class="stat-card">
-                        <div class="stat-icon" style="background-color: #FF9800;">
-                            <i class="fas fa-dollar-sign"></i>
-                        </div>
-                        <div class="stat-info">
-                            <h3>Doanh thu</h3>
-                            <p>50.5M</p>
-                            <span class="trend positive">
-                                <i class="fas fa-arrow-up"></i>
-                                12%
-                            </span>
-                        </div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-icon" style="background-color: #E91E63;">
+                        <div class="stat-icon" style="background-color: var(--warning-color);">
                             <i class="fas fa-box"></i>
                         </div>
                         <div class="stat-info">
                             <h3>Sản phẩm</h3>
-                            <p>450</p>
-                            <span class="trend negative">
-                                <i class="fas fa-arrow-down"></i>
-                                3%
-                            </span>
+                            <p>300</p>
                         </div>
                     </div>
+                    <div class="stat-card">
+                        <div class="stat-icon" style="background-color: var(--danger-color);">
+                            <i class="fas fa-dollar-sign"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3>Doanh thu</h3>
+                            <p>50M</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Products Section -->
+            <div id="products" class="content-section">
+                <h2>Quản lý sản phẩm</h2>
+                <div class="table-container">
+                    <!-- Table content will be added by JavaScript -->
+                </div>
+            </div>
+
+            <!-- Users Section -->
+            <div id="users" class="content-section">
+                <h2>Quản lý người dùng</h2>
+                <div class="table-container">
+                    <!-- Table content will be added by JavaScript -->
+                </div>
+            </div>
+
+            <!-- Orders Section -->
+            <div id="orders" class="content-section">
+                <h2>Quản lý đơn hàng</h2>
+                <div class="table-container">
+                    <!-- Table content will be added by JavaScript -->
                 </div>
             </div>
         </div>
     </div>
-
-
-
-
 </body>
 
 </html>

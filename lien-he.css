@@ -11,8 +11,8 @@ body{
     background-color: #fff;
     margin: auto;
     padding: 20px;
-    border-radius: 5px;
     width: 80%;
+    border: solid 1px #6d6868;
 }
 
 .form-report{
