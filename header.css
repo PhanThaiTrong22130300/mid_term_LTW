@@ -1,7 +1,7 @@
 header {
     background: #333;
     color: #fff;
-    padding: 20px;
+    padding:10px 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -24,24 +24,53 @@ header {
     font-weight: bold;
 }
 
+.auth-links a:hover {
+    color: #ffc107;
+}
+
 nav {
     background: #fff;
-    padding: 15px 60px;
+    padding: 10px 50px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
-nav a {
-    color: #555;
-    margin: 0 15px;
-    text-decoration: none;
-    font-weight: bold;
+nav ul {
+    display: flex;
+    gap: 20px;
 }
 
-nav a:hover::after {
+nav ul li {
+    list-style: none;
+}
+
+nav ul li a {
+    display: flex;
+    color: #555;
+    align-items: center; 
+    justify-content: center;
+    padding: 5px 16px;
+    text-decoration: none;
+    font-weight: bold;
+    height: 100%;
+}
+
+nav ul li a:hover {
     text-decoration: underline;
+}
+
+nav ul li.active {
+    background-color: #333;
+    position: relative;
+    margin: -26px 0px;
+}
+
+nav ul li.active a{
+    color: #fff;
+    text-decoration: none;
+    font-weight: bolder;
 }
 
 .search-container {
