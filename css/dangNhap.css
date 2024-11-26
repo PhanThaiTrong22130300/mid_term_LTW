@@ -1,4 +1,4 @@
-/* Variables */
+/* 1. Variables */
 :root {
     /* Colors */
     --primary-color: #1877f2;
@@ -9,15 +9,9 @@
     --error-color: #dc3545;
     --success-color: #28a745;
 
-    /* Social Colors */
-    --facebook-color: #1877f2;
-    --google-color: #db4437;
-
-    /* Shadows */
+    /* Shadows & Effects */
     --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.1);
     --shadow-md: 0 4px 8px rgba(0, 0, 0, 0.2);
-
-    /* Transitions */
     --transition-default: all 0.3s ease;
 
     /* Spacing */
@@ -27,14 +21,18 @@
     --spacing-lg: 2rem;
 }
 
-/* Reset */
+/* 2. Reset & Base Styles */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* Base Styles */
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     line-height: 1.6;
@@ -47,12 +45,11 @@ body {
     background-attachment: fixed;
 }
 
-a {
-    text-decoration: none;
-    color: inherit;
+main {
+    flex: 1;
 }
 
-/* Header */
+/* 3. Header & Navigation */
 header {
     background-color: var(--secondary-color);
     color: var(--white);
@@ -60,6 +57,7 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    backdrop-filter: blur(5px);
 }
 
 .brand {
@@ -70,6 +68,9 @@ header {
 .auth-links a {
     color: var(--white);
     margin-left: var(--spacing-sm);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
 }
 
 .auth-links a:hover {
@@ -78,13 +79,13 @@ header {
     transition: var(--transition-default);
 }
 
-/* Navigation */
 nav {
-    background-color: var(--white);
+    background-color: rgba(255, 255, 255, 0.9);
     padding: var(--spacing-sm) var(--spacing-lg);
     display: flex;
     justify-content: space-between;
     align-items: center;
+    backdrop-filter: blur(5px);
 }
 
 .nav-links {
@@ -103,59 +104,88 @@ nav {
     transition: var(--transition-default);
 }
 
-/* Main Container */
+/* 4. Cart Styles */
+.cart {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+}
+
+.cart-icon,
+.cart-text {
+    color: var(--secondary-color);
+    transition: var(--transition-default);
+}
+
+.cart-text {
+    font-weight: 500;
+}
+
+.cart:hover .cart-icon,
+.cart:hover .cart-text {
+    color: var(--primary-color);
+    transform: translateY(-2px);
+}
+
+/* 5. Main Content & Login Form */
 .main-container {
     max-width: 600px;
     margin: 20px auto;
     padding: 0 var(--spacing-sm);
+    min-height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-/* Register Form */
-.register-container {
+.login-container {
     background: var(--white);
     padding: var(--spacing-md);
     border-radius: 8px;
     box-shadow: var(--shadow-sm);
     max-width: 400px;
     margin: 0 auto;
+    animation: fadeIn 0.8s ease-out;
+    width: 100%;
 }
 
-.register-container h2 {
+.login-container h2 {
     text-align: center;
     margin-bottom: var(--spacing-md);
     color: var(--primary-color);
 }
 
-/* Form Elements */
+/* 6. Form Elements */
 .form-section {
-    margin-bottom: var(--spacing-sm);
+    margin-bottom: var(--spacing-md);
 }
 
 .form-group {
-    margin-bottom: var(--spacing-xs);
+    margin-bottom: var(--spacing-sm);
 }
 
 .form-group label {
     display: block;
     margin-bottom: var(--spacing-xs);
+    color: var(--secondary-color);
     font-weight: 500;
 }
 
 .form-group input {
     width: 100%;
-    padding: 0.8rem;
+    padding: var(--spacing-sm);
     border: 1px solid var(--border-color);
     border-radius: 4px;
     transition: var(--transition-default);
 }
 
 .form-group input:focus {
-    border-color: var(--primary-color);
-    box-shadow: var(--shadow-sm);
     outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 2px rgba(24, 119, 242, 0.2);
 }
 
-/* Password Input */
+/* 7. Password Input */
 .password-input {
     position: relative;
 }
@@ -169,70 +199,73 @@ nav {
     color: var(--secondary-color);
 }
 
-/* Buttons */
+/* 8. Checkbox & Forgot Password */
+.checkbox-container {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+}
+
+.forgot-password {
+    color: var(--primary-color);
+    font-size: 0.9rem;
+}
+
+.forgot-password:hover {
+    text-decoration: underline;
+}
+
+/* 9. Buttons */
 .submit-btn {
     width: 100%;
     padding: var(--spacing-sm);
-    background: var(--primary-color);
+    background-color: var(--primary-color);
     color: var(--white);
     border: none;
     border-radius: 4px;
-    font-size: 1rem;
-    font-weight: 500;
+    font-weight: bold;
     cursor: pointer;
     transition: var(--transition-default);
 }
 
 .submit-btn:hover {
-
-    transform: translateY(-2px);
-}
-
-/* Social Login */
-.social-login {
-    text-align: center;
-    margin-top: var(--spacing-md);
-}
-
-.buttons-container {
-    display: flex;
-    justify-content: center;
-    gap: var(--spacing-xs);
-    margin-top: var(--spacing-xs);
-}
-
-.social-btn {
-    width: 160px;
-    height: 45px;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 4px;
-    font-weight: 500;
-    cursor: pointer;
-    transition: var(--transition-default);
-}
-
-.social-btn i {
-    margin-right: var(--spacing-xs);
-}
-
-.facebook-btn {
-    background-color: var(--facebook-color);
-    color: var(--white);
-}
-
-.google-btn {
-    background-color: var(--google-color);
-    color: var(--white);
-}
-
-.social-btn:hover {
     transform: translateY(-2px);
     box-shadow: var(--shadow-sm);
 }
 
-/* Footer */
+/* 10. Social Login */
+.social-login {
+    text-align: center;
+    margin-top: var(--spacing-lg);
+}
+
+.social-login p {
+    color: var(--secondary-color);
+    margin-bottom: var(--spacing-sm);
+}
+
+.buttons-container {
+    display: flex;
+    gap: var(--spacing-sm);
+}
+
+/* 11. Register Link */
+.register-link {
+    text-align: center;
+    margin-top: var(--spacing-md);
+}
+
+.register-link a {
+    color: var(--primary-color);
+    font-weight: 500;
+}
+
+.register-link a:hover {
+    transform: translateY(-2px);
+    transition: var(--transition-default);
+}
+
+/* 12. Footer */
 footer {
     background-color: var(--secondary-color);
     color: var(--white);
@@ -247,6 +280,7 @@ footer {
 
 .footer-links a {
     margin: 0 var(--spacing-xs);
+    color: var(--white);
 }
 
 .footer-links a:hover {
@@ -254,79 +288,74 @@ footer {
     transition: var(--transition-default);
 }
 
-/* Responsive Design */
+/* 13. Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* 14. Responsive Design */
 @media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        gap: var(--spacing-sm);
+        text-align: center;
+    }
+
+    nav {
+        flex-direction: column;
+        gap: var(--spacing-sm);
+    }
+
     .nav-links {
         flex-direction: column;
         gap: var(--spacing-sm);
     }
 
-    .social-btn {
-        width: 100%;
+    .auth-links {
+        margin-top: var(--spacing-xs);
+    }
+
+    .main-container {
+        padding: var(--spacing-sm);
+    }
+
+    .login-container {
+        padding: var(--spacing-md);
     }
 
     .buttons-container {
         flex-direction: column;
     }
-}
 
-/* Cart hover effect */
-.cart {
-    display: flex;
-    align-items: center;
-    gap: var(--spacing-xs);
-}
-
-.cart-icon {
-    color: var(--secondary-color);
-    transition: var(--transition-default);
-}
-
-.cart-text {
-    color: var(--secondary-color);
-    font-weight: 500;
-    transition: var(--transition-default);
-}
-
-.cart:hover .cart-icon,
-.cart:hover .cart-text {
-    color: var(--primary-color);
-    transform: translateY(-2px);
-}
-
-/* Login link hover effect */
-.login-link a {
-    color: var(--primary-color);
-    font-weight: 500;
-    transition: var(--transition-default);
-
-}
-
-.login-link a:hover {
-    text-decoration: underline;
-    transform: translateY(-2px);
-    display: inline-block;
-}
-
-.login-link {
-    margin-top: var(--spacing-md);
-    text-align: center;
-}
-
-.login-link p {
-    color: var(--secondary-color);
+    .footer-links a {
+        display: block;
+        padding: var(--spacing-xs) 0;
+    }
 }
 
 .error-message {
     color: #dc3545;
     font-size: 0.8rem;
     margin-top: 0.25rem;
+    display: block;
 }
 
-input.error {
+.form-group input.error {
     border-color: #dc3545;
 }
 
-.checkbox-container .error-message {
-    margin-left: 1.5rem;
+.form-group input.error:focus {
+    box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.25);
+}
+
+.form-group.has-error .error-message {
+    display: block;
 }
