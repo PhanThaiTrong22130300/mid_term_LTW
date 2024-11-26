@@ -68,19 +68,7 @@ function showError(inputId, message) {
 // Xử lý nút quên mật khẩu
 document.querySelector('.forgot-password').addEventListener('click', function (e) {
     e.preventDefault();
-    window.location.href = '../trangQuenMatKhau/quenMatKhau.html';
-});
-
-// Xử lý đăng nhập với Facebook
-document.querySelector('.facebook-btn').addEventListener('click', function () {
-    // Thêm code xử lý đăng nhập Facebook ở đây
-    alert('Tính năng đang được phát triển!');
-});
-
-// Xử lý đăng nhập với Google
-document.querySelector('.google-btn').addEventListener('click', function () {
-    // Thêm code xử lý đăng nhập Google ở đây
-    alert('Tính năng đang được phát triển!');
+    window.location.href = '../html/quenMatKhau.html';
 });
 
 // Lưu thông tin đăng nhập nếu chọn "Ghi nhớ đăng nhập"
@@ -102,12 +90,26 @@ window.addEventListener('load', function () {
 });
 
 // Xử lý chuyển trang đăng ký
-document.querySelector('.auth-links a[href="../trangDangKy/dangKy.html"]').addEventListener('click', function (e) {
-    e.preventDefault();
-    window.location.href = '../trangDangKy/dangKy.html';
+document.querySelectorAll('.auth-links a[href="../html/dangKy.html"], .register-link a').forEach(link => {
+    link.addEventListener('click', function (e) {
+        e.preventDefault();
+        window.location.href = '../html/dangKy.html';
+    });
 });
 
-document.querySelector('.register-link a').addEventListener('click', function (e) {
+// Xử lý chuyển trang giỏ hàng
+document.querySelector('.cart a').addEventListener('click', function (e) {
     e.preventDefault();
-    window.location.href = '../trangDangKy/dangKy.html';
+    window.location.href = '../html/gio-hang.html';
+});
+
+document.querySelector('.nav-links a[href="../html/san-Pham.html"]').addEventListener('click', function (e) {
+    e.preventDefault();
+    window.location.href = '../html/san-Pham.html';
+});
+
+// Xử lý chuyển trang liên hệ
+document.querySelector('.nav-links a[href="../html/lien-he.html"]').addEventListener('click', function (e) {
+    e.preventDefault();
+    window.location.href = '../html/lien-he.html';
 });
