@@ -30,6 +30,7 @@ main {
 
 .product-gallery {
     flex: 1;
+    position: relative;
 }
 
 .product-gallery img {
@@ -51,6 +52,30 @@ main {
     border: 1px solid #ddd;
     border-radius: 4px;
     cursor: pointer;
+}
+
+.thumbnails button {
+    background: rgba(0, 0, 0, 0.3);
+    border: none;
+    color: white;
+    padding: 10px;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+}
+
+.thumbnails button.prev {
+    left: 0;
+}
+
+.thumbnails button.next {
+    right: 0;
+}
+
+.thumbnails button:hover {
+    background: rgba(0, 0, 0, 0.5);
 }
 
 .product-info {
