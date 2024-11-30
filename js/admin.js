@@ -58,6 +58,12 @@ function handleNavigation(e) {
         return;
     }
 
+    // Navigate to Users page
+    if (targetSection === 'users') {
+        window.location.href = 'admin_NguoiDung.html'; // Redirect to users page
+        return;
+    }
+
     // Show target section
     elements.content.sections.forEach(section => {
         section.classList.remove('active');
