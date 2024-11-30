@@ -66,6 +66,9 @@ function handleNavigation(e) {
         case 'orders':
             window.location.href = 'admin_DonHang.html';
             break;
+        case 'revenue':
+            window.location.href = 'admin_DoanhThu.html';
+            break;
         default:
             elements.content.sections.forEach(section => {
                 section.classList.toggle('active', section.id === targetSection);
