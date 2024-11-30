@@ -50,105 +50,59 @@
                     <input type="text" placeholder="Tìm kiếm...">
                 </div>
                 <div class="header-right">
-                    <div class="notifications">
-                        <i class="fas fa-bell"></i>
-                        <span class="badge">3</span>
-                        <div class="notifications-dropdown">
-                            <div class="notification-item">
-                                <i class="fas fa-shopping-cart"></i>
-
-                            </div>
-                            <div class="notification-item">
-                                <i class="fas fa-user"></i>
-
-                            </div>
-                            <div class="notification-item">
-                                <i class="fas fa-exclamation-circle"></i>
-
-                            </div>
-                        </div>
-                    </div>
-                    <div class="admin-profile">
-
-                        <span>Admin</span>
-                        <i class="fas fa-chevron-down"></i>
-                        <div class="profile-dropdown">
-
-                            <a href="../html/dangNhap.html">
-                                <i class="fas fa-sign-out-alt"></i> Đăng xuất
-                            </a>
-                        </div>
-                    </div>
+                    <button id="logout-btn">
+                        <i class="fas fa-sign-out-alt"></i> Đăng xuất
+                    </button>
                 </div>
             </header>
 
             <!-- Dashboard -->
             <div id="dashboard" class="content-section active">
                 <div class="stats-container">
-                    <div class="stat-card">
+                    <div class="stat-card" id="orders-stat">
                         <div class="stat-icon" style="background-color: var(--success-color);">
                             <i class="fas fa-shopping-cart"></i>
                         </div>
                         <div class="stat-info">
                             <h3>Đơn hàng</h3>
-                            <p>150</p>
+                            <p>0</p>
                         </div>
                     </div>
-                    <div class="stat-card">
+                    <div class="stat-card" id="users-stat">
                         <div class="stat-icon" style="background-color: var(--primary-color);">
                             <i class="fas fa-users"></i>
                         </div>
                         <div class="stat-info">
                             <h3>Người dùng</h3>
-                            <p>1,250</p>
+                            <p>0</p>
                         </div>
                     </div>
-                    <div class="stat-card">
+                    <div class="stat-card" id="products-stat">
                         <div class="stat-icon" style="background-color: var(--warning-color);">
                             <i class="fas fa-box"></i>
                         </div>
                         <div class="stat-info">
                             <h3>Sản phẩm</h3>
-                            <p>300</p>
+                            <p>0</p>
                         </div>
                     </div>
-                    <div class="stat-card">
+                    <div class="stat-card" id="revenue-stat">
                         <div class="stat-icon" style="background-color: var(--danger-color);">
                             <i class="fas fa-dollar-sign"></i>
                         </div>
                         <div class="stat-info">
                             <h3>Doanh thu</h3>
-                            <p>50M</p>
+                            <p>0</p>
                         </div>
                     </div>
-
                 </div>
             </div>
 
-            <!-- Products Section -->
-            <div id="products" class="content-section">
 
-                <div class="table-container">
-                    <!-- Table content will be added by JavaScript -->
-                </div>
-            </div>
 
-            <!-- Users Section -->
-            <div id="users" class="content-section">
-                <h2>Quản lý người dùng</h2>
-                <div class="table-container">
-                    <!-- Table content will be added by JavaScript -->
-                </div>
-            </div>
-
-            <!-- Orders Section -->
-            <div id="orders" class="content-section">
-                <h2>Quản lý đơn hàng</h2>
-                <div class="table-container">
-                    <!-- Table content will be added by JavaScript -->
-                </div>
-            </div>
         </div>
+    </div>
+    </div>
     </div>
 </body>
 

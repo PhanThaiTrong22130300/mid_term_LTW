@@ -1,6 +1,6 @@
 // Constants
 const MESSAGES = {
-    development: 'Tính năng đang được phát triển!',
+
     logout: 'Bạn có chắc muốn đăng xuất?'
 };
 
@@ -13,7 +13,8 @@ const elements = {
     header: {
         searchInput: document.querySelector('.search-bar input'),
         notifications: document.querySelector('.notifications'),
-        adminProfile: document.querySelector('.admin-profile')
+        adminProfile: document.querySelector('.admin-profile'),
+        logoutBtn: document.getElementById('logout-btn')
     },
     content: {
         sections: document.querySelectorAll('.content-section')
@@ -29,6 +30,7 @@ document.addEventListener('DOMContentLoaded', () => {
 function initializeEventListeners() {
     // Sidebar navigation
     elements.sidebar.links.forEach(link => {
+        link.removeEventListener('click', handleNavigation); // Gỡ sự kiện cũ nếu có
         link.addEventListener('click', handleNavigation);
     });
 
@@ -36,6 +38,7 @@ function initializeEventListeners() {
     elements.header.notifications.addEventListener('click', toggleDropdown);
     elements.header.adminProfile.addEventListener('click', toggleDropdown);
     elements.header.searchInput.addEventListener('input', handleSearch);
+    elements.header.logoutBtn.addEventListener('click', handleLogout);
 
     // Click outside dropdowns
     document.addEventListener('click', handleClickOutside);
@@ -45,32 +48,30 @@ function initializeEventListeners() {
 function handleNavigation(e) {
     e.preventDefault();
     const targetSection = e.currentTarget.getAttribute('data-section');
+    if (!targetSection) {
+        console.error('Không tìm thấy data-section cho liên kết được nhấp.');
+        return;
+    }
 
-    // Update active states
-    elements.sidebar.links.forEach(link => {
-        link.classList.remove('active');
-    });
+    elements.sidebar.links.forEach(link => link.classList.remove('active'));
     e.currentTarget.classList.add('active');
 
-    // Navigate to Products page
-    if (targetSection === 'products') {
-        window.location.href = 'admin_SanPham.html'; // Redirect to products page
-        return;
+    switch (targetSection) {
+        case 'products':
+            window.location.href = 'admin_SanPham.html';
+            break;
+        case 'users':
+            window.location.href = 'admin_NguoiDung.html';
+            break;
+        case 'orders':
+            window.location.href = 'admin_DonHang.html';
+            break;
+        default:
+            elements.content.sections.forEach(section => {
+                section.classList.toggle('active', section.id === targetSection);
+            });
+            break;
     }
-
-    // Navigate to Users page
-    if (targetSection === 'users') {
-        window.location.href = 'admin_NguoiDung.html'; // Redirect to users page
-        return;
-    }
-
-    // Show target section
-    elements.content.sections.forEach(section => {
-        section.classList.remove('active');
-        if (section.id === targetSection) {
-            section.classList.add('active');
-        }
-    });
 }
 
 // Dropdown Handlers
@@ -78,22 +79,19 @@ function toggleDropdown(e) {
     e.stopPropagation();
     const isNotifications = this.classList.contains('notifications');
 
-    // Close other dropdown
     if (isNotifications) {
         elements.header.adminProfile.classList.remove('active');
     } else {
         elements.header.notifications.classList.remove('active');
     }
-
-    // Toggle current dropdown
     this.classList.toggle('active');
 }
 
 function handleClickOutside(e) {
-    if (!e.target.closest('.notifications')) {
+    if (!e.target.closest('.notifications') && elements.header.notifications.classList.contains('active')) {
         elements.header.notifications.classList.remove('active');
     }
-    if (!e.target.closest('.admin-profile')) {
+    if (!e.target.closest('.admin-profile') && elements.header.adminProfile.classList.contains('active')) {
         elements.header.adminProfile.classList.remove('active');
     }
 }
@@ -101,13 +99,27 @@ function handleClickOutside(e) {
 // Search Handler
 function handleSearch(e) {
     const searchTerm = e.target.value.toLowerCase();
-    // Implement search logic here
     console.log('Searching for:', searchTerm);
 }
 
+// Logout Handler
+function handleLogout(e) {
+    e.preventDefault();
+    if (confirm(MESSAGES.logout)) {
+        window.location.href = '../html/dangNhap.html';
+    }
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    const logoutBtn = document.getElementById('logout-btn');
+    if (logoutBtn) {
+        logoutBtn.addEventListener('click', handleLogout);
+    }
+});
+
+
 // Dashboard Data
 function loadDashboardData() {
-    // Simulate loading data
     const stats = {
         orders: 150,
         users: 1250,
@@ -118,22 +130,17 @@ function loadDashboardData() {
 }
 
 function updateDashboardStats(stats) {
-    // Update stats in dashboard
     Object.entries(stats).forEach(([key, value]) => {
         const statElement = document.querySelector(`#${key}-stat`);
         if (statElement) {
             statElement.textContent = value;
+        } else {
+            console.warn(`Không tìm thấy phần tử với ID: ${key}-stat`);
         }
     });
 }
 
 // Utility Functions
-function logout() {
-    if (confirm(MESSAGES.logout)) {
-        window.location.href = '../html/dangNhap.html';
-    }
-}
-
 function showDevelopmentMessage() {
     alert(MESSAGES.development);
 }
