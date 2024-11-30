@@ -52,6 +52,12 @@ function handleNavigation(e) {
     });
     e.currentTarget.classList.add('active');
 
+    // Navigate to Products page
+    if (targetSection === 'products') {
+        window.location.href = 'admin_SanPham.html'; // Redirect to products page
+        return;
+    }
+
     // Show target section
     elements.content.sections.forEach(section => {
         section.classList.remove('active');
@@ -118,7 +124,7 @@ function updateDashboardStats(stats) {
 // Utility Functions
 function logout() {
     if (confirm(MESSAGES.logout)) {
-        window.location.href = '../trangDangNhap/dangNhap.html';
+        window.location.href = '../html/dangNhap.html';
     }
 }
 
