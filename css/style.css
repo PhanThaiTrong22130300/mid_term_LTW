@@ -102,6 +102,7 @@ body {
     color: #333;
     transition: color 0.3s ease, text-decoration 0.3s ease;
     cursor: pointer;
+    text-decoration: none;
 }
 
 .product h3 a:hover {
