@@ -1,283 +1,119 @@
-/* 1. Variables */
-:root {
-    /* Colors */
-    --primary-color: #1877f2;
-    --secondary-color: #333;
-    --background-color: #f0f2f5;
-    --white: #ffffff;
-    --border-color: #ddd;
-    --error-color: #dc3545;
-    --success-color: #28a745;
-
-    /* Shadows & Effects */
-    --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.1);
-    --shadow-md: 0 4px 8px rgba(0, 0, 0, 0.2);
-    --transition-default: all 0.3s ease;
-
-    /* Spacing */
-    --spacing-xs: 0.5rem;
-    --spacing-sm: 1rem;
-    --spacing-md: 1.5rem;
-    --spacing-lg: 2rem;
-}
-
-/* 2. Reset & Base Styles */
-* {
+body{
+    font-family: Tahoma, sans-serif;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
+    background-color: #f4f4f4;
 }
 
-a {
-    text-decoration: none;
-    color: inherit;
-}
-
-body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    line-height: 1.6;
-    color: var(--secondary-color);
-    background-color: var(--background-color);
-    background-image: url('../img/anhNen.jpg');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-}
-
-main {
-    flex: 1;
-}
-
-/* 4. Cart Styles */
-.cart {
-    display: flex;
-    align-items: center;
-    gap: var(--spacing-xs);
-}
-
-.cart-icon,
-.cart-text {
-    color: var(--secondary-color);
-    transition: var(--transition-default);
-}
-
-.cart-text {
-    font-weight: 500;
-}
-
-.cart:hover .cart-icon,
-.cart:hover .cart-text {
-    color: var(--primary-color);
-    transform: translateY(-2px);
-}
-
-/* 5. Main Content & Login Form */
+/* Main content styles */
 .main-container {
-    max-width: 600px;
-    margin: 20px auto;
-    padding: 0 var(--spacing-sm);
-    min-height: 80vh;
     display: flex;
     justify-content: center;
     align-items: center;
+    min-height: calc(100vh - 160px);
+    padding: 20px;
+    background-color: #f8f9fa;
 }
 
 .login-container {
-    background: var(--white);
-    padding: var(--spacing-md);
+    background-color: #fff;
+    padding: 20px;
     border-radius: 8px;
-    box-shadow: var(--shadow-sm);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     max-width: 400px;
-    margin: 0 auto;
-    animation: fadeIn 0.8s ease-out;
     width: 100%;
 }
 
 .login-container h2 {
     text-align: center;
-    margin-bottom: var(--spacing-md);
-    color: var(--primary-color);
+    margin-bottom: 20px;
+    color: #007bff;
 }
 
-/* 6. Form Elements */
 .form-section {
-    margin-bottom: var(--spacing-md);
+    margin-bottom: 15px;
 }
 
 .form-group {
-    margin-bottom: var(--spacing-sm);
+    margin-bottom: 15px;
 }
 
-.form-group label {
+label {
     display: block;
-    margin-bottom: var(--spacing-xs);
-    color: var(--secondary-color);
-    font-weight: 500;
+    margin-bottom: 5px;
+    font-size: 14px;
+    font-weight: bold;
 }
 
-.form-group input {
+.form-group input[type="text"],
+input[type="email"],
+input[type="password"] {
     width: 100%;
-    padding: var(--spacing-sm);
-    border: 1px solid var(--border-color);
-    border-radius: 4px;
-    transition: var(--transition-default);
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
 }
 
-.form-group input:focus {
-    outline: none;
-    border-color: var(--primary-color);
-    box-shadow: 0 0 0 2px rgba(24, 119, 242, 0.2);
+input[type="checkbox"] {
+    margin-right: 5px;
 }
 
-/* 7. Password Input */
-.password-input {
-    position: relative;
-}
-
-.toggle-password {
-    position: absolute;
-    right: var(--spacing-sm);
-    top: 50%;
-    transform: translateY(-50%);
-    cursor: pointer;
-    color: var(--secondary-color);
-}
-
-/* 8. Checkbox & Forgot Password */
 .checkbox-container {
     display: flex;
     align-items: center;
-    gap: var(--spacing-xs);
+    margin-bottom: 10px;
+}
+
+.checkbox-container label{
+    margin-top: 5px;
 }
 
 .forgot-password {
-    color: var(--primary-color);
-    font-size: 0.9rem;
+    font-size: 14px;
+    text-decoration: none;
+    color: #007bff;
+    margin-left: auto;
 }
 
 .forgot-password:hover {
     text-decoration: underline;
 }
 
-/* 9. Buttons */
 .submit-btn {
+    display: block;
     width: 100%;
-    padding: var(--spacing-sm);
-    background-color: var(--primary-color);
-    color: var(--white);
+    padding: 10px;
+    background-color: #007bff;
+    color: #fff;
     border: none;
-    border-radius: 4px;
-    font-weight: bold;
+    border-radius: 5px;
+    font-size: 16px;
     cursor: pointer;
-    transition: var(--transition-default);
 }
 
 .submit-btn:hover {
-    transform: translateY(-2px);
-    box-shadow: var(--shadow-sm);
+    background-color: #0056b3;
 }
 
-/* 10. Social Login */
-.social-login {
-    text-align: center;
-    margin-top: var(--spacing-lg);
-}
-
-.social-login p {
-    color: var(--secondary-color);
-    margin-bottom: var(--spacing-sm);
-}
-
-.buttons-container {
-    display: flex;
-    gap: var(--spacing-sm);
-}
-
-/* 11. Register Link */
 .register-link {
     text-align: center;
-    margin-top: var(--spacing-md);
+    margin-top: 15px;
+    font-size: 14px;
 }
 
 .register-link a {
-    color: var(--primary-color);
-    font-weight: 500;
+    color: #007bff;
+    text-decoration: none;
 }
 
 .register-link a:hover {
-    transform: translateY(-2px);
-    transition: var(--transition-default);
-}
-
-/* 13. Animations */
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(-20px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-/* 14. Responsive Design */
-@media (max-width: 768px) {
-    header {
-        flex-direction: column;
-        gap: var(--spacing-sm);
-        text-align: center;
-    }
-
-    nav {
-        flex-direction: column;
-        gap: var(--spacing-sm);
-    }
-
-    .nav-links {
-        flex-direction: column;
-        gap: var(--spacing-sm);
-    }
-
-    .auth-links {
-        margin-top: var(--spacing-xs);
-    }
-
-    .main-container {
-        padding: var(--spacing-sm);
-    }
-
-    .login-container {
-        padding: var(--spacing-md);
-    }
-
-    .buttons-container {
-        flex-direction: column;
-    }
-
-    .footer-links a {
-        display: block;
-        padding: var(--spacing-xs) 0;
-    }
+    text-decoration: underline;
 }
 
 .error-message {
-    color: #dc3545;
-    font-size: 0.8rem;
-    margin-top: 0.25rem;
-    display: block;
-}
-
-.form-group input.error {
-    border-color: #dc3545;
-}
-
-.form-group input.error:focus {
-    box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.25);
-}
-
-.form-group.has-error .error-message {
-    display: block;
+    color: red;
+    font-size: 12px;
+    margin-top: 5px;
+    display: none;
 }
