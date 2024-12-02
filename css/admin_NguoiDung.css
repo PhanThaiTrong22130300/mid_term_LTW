@@ -8,43 +8,119 @@
     --success-color: #4CAF50;
     --warning-color: #f1c40f;
     --danger-color: #e74c3c;
-    --hover-color: rgba(0, 0, 0, 0.1);
+    --sidebar-color: #2c3e50;
+
+    --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.1);
+    --shadow-md: 0 4px 8px rgba(0, 0, 0, 0.2);
+
+    --transition-default: all 0.3s ease;
+
+    --spacing-xs: 0.5rem;
+    --spacing-sm: 1rem;
+    --spacing-md: 1.5rem;
+    --spacing-lg: 2rem;
 }
 
-/* 2. Base Styles */
+/* Reset & Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
 body {
     background-color: var(--background-color);
     color: var(--secondary-color);
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     line-height: 1.6;
 }
 
-.users-container {
-    padding: 20px;
-}
-
-header {
+/* Layout */
+.products-container {
     display: flex;
-    justify-content: space-between;
+    min-height: 100vh;
+}
+
+/* Sidebar */
+.sidebar {
+    width: 250px;
+    background-color: var(--sidebar-color);
+    color: var(--white);
+    padding: var(--spacing-md);
+    position: fixed;
+    height: 100vh;
+    overflow-y: auto;
+    transition: width 0.3s ease;
+}
+
+.brand {
+    display: flex;
     align-items: center;
-    margin-bottom: 20px;
+    gap: var(--spacing-sm);
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: var(--spacing-lg);
+    padding-bottom: var(--spacing-sm);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-h1 {
-    font-size: 1.8rem;
-    color: var(--secondary-color);
+.sidebar nav {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xs);
 }
 
-/* 3. Table Styles */
+.sidebar nav a {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    padding: var(--spacing-sm);
+    color: var(--white);
+    text-decoration: none;
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+}
+
+.sidebar nav a:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+
+
+/* Main Content */
+.main-content {
+    flex: 1;
+    padding: var(--spacing-md);
+    margin-left: 250px;
+    background-color: var(--white);
+    box-shadow: var(--shadow-md);
+    border-radius: 8px;
+}
+
+/* Form Styles */
+#add-user-form input {
+    width: 100%;
+    padding: var(--spacing-xs);
+    margin-bottom: var(--spacing-md);
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+}
+
+/* Table Container */
+.table-container {
+    margin-top: var(--spacing-lg);
+    overflow-x: auto;
+}
+
+/* Table Styles */
 table {
     width: 100%;
     border-collapse: collapse;
-    margin-top: 20px;
 }
 
 th,
 td {
-    padding: 12px;
+    padding: var(--spacing-sm);
     text-align: left;
     border-bottom: 1px solid var(--border-color);
 }
@@ -52,49 +128,46 @@ td {
 th {
     background-color: var(--primary-color);
     color: var(--white);
-    font-weight: bold;
 }
 
-td {
-    background-color: var(--white);
-    transition: background-color 0.3s ease;
+tr:hover {
+    background-color: rgba(0, 0, 0, 0.05);
 }
 
-
-
-/* 4. Button Styles */
+/* Button Styles */
 button {
-    padding: 10px 15px;
-    background-color: var(--success-color);
+    background-color: var(--primary-color);
     color: var(--white);
     border: none;
-    border-radius: 5px;
+    padding: var(--spacing-xs) var(--spacing-sm);
+    border-radius: 8px;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s ease, transform 0.2s;
 }
 
 button:hover {
-    background-color: var(--primary-color);
+    background-color: var(--success-color);
+    transform: scale(1.05);
 }
 
-/* 5. Responsive Design */
+button:disabled {
+    background-color: var(--border-color);
+    cursor: not-allowed;
+}
+
+/* Responsive Design */
 @media (max-width: 768px) {
-    header {
+    .sidebar {
+        width: 0;
+        padding: 0;
+    }
+
+    .products-container {
         flex-direction: column;
-        align-items: flex-start;
     }
 
-    button {
+    #add-user-btn {
         width: 100%;
-        margin-top: 10px;
-    }
-
-    table {
-        font-size: 0.9rem;
-    }
-
-    th,
-    td {
-        padding: 8px;
+        margin-top: var(--spacing-sm);
     }
 }

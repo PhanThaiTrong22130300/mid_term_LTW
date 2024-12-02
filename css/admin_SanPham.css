@@ -92,10 +92,6 @@ body {
 
 }
 
-.sidebar nav a.active:hover {
-    background-color: transparent;
-    /* Không thay đổi màu nền khi hover */
-}
 
 
 
