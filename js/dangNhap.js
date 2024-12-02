@@ -39,7 +39,7 @@ document.getElementById('loginForm').addEventListener('submit', function (e) {
     }
 
     // Chuyển hướng đến trang chủ
-    window.location.href = '../trang-chu.html';
+    window.location.href = '../html/trang-chu.html';
 });
 // Hiển thị lỗi
 function showError(inputId, message) {
