@@ -126,7 +126,7 @@ async function submitForm(data) {
     try {
         // Add your form submission logic here
         console.log('Form submitted:', data);
-        window.location.href = '../html/trang-chu.html';
+        window.location.href = '../html/dangNhap.html';
     } catch (error) {
         console.error('Error submitting form:', error);
     }
