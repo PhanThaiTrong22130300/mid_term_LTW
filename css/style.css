@@ -6,6 +6,11 @@ body {
     overflow-x: hidden;
 }
 
+a{
+    text-decoration: none;
+    color: #333;
+}
+
 .hero-image {
     height: 400px;
     display: flex;
@@ -139,9 +144,15 @@ body {
     text-decoration: none;
 }
 
+button.btn-detail{
+    background-color: #28a745;
+}
+
+button.btn-add-to-cart{
+    background-color: #007bff;
+}
 
 .product-buttons button {
-    background-color: #007bff;
     color: #fff;
     border: none;
     padding: 10px 15px;
@@ -151,7 +162,11 @@ body {
     margin: 0 5px;
 }
 
-.product-buttons button:hover {
+.product-buttons button.btn-detail:hover {
+    background-color: #218838;
+}
+
+.product-buttons button.btn-add-to-cart:hover {
     background-color: #0056b3;
 }
 
