@@ -4,50 +4,82 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quản lý Doanh thu</title>
+    <title>TTD Shop - Doanh thu</title>
     <link rel="stylesheet" href="../css/admin_DoanhThu.css">
-    <script src="../js/admin_DoanhThu.js" defer></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <script src="../js/admin_DoanhThu.js" defer></script>
 </head>
 
 <body>
-    <div class="container">
+    <div class="revenue-container">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <div class="brand">
+                <i class="fas fa-shield-alt"></i>
+                <span>TTD Admin</span>
+            </div>
+            <nav>
+                <a href="#dashboard" data-section="dashboard">
+                    <i class="fas fa-home"></i>
+                    <span>Trang chủ</span>
+                </a>
+                <a href="#products" data-section="products">
+                    <i class="fas fa-box"></i>
+                    <span>Sản phẩm</span>
+                </a>
+                <a href="#users" data-section="users">
+                    <i class="fas fa-users"></i>
+                    <span>Người dùng</span>
+                </a>
+                <a href="#orders" data-section="orders">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span>Đơn hàng</span>
+                </a>
+                <a href="#revenue" class="active" data-section="revenue">
+                    <i class="fas fa-chart-line"></i>
+                    <span>Doanh thu</span>
+                </a>
+            </nav>
+        </div>
 
-        <div class="filter">
-            <label for="month">Chọn tháng:</label>
-            <select id="month">
-                <option value="1">Tháng 1</option>
-                <option value="2">Tháng 2</option>
-                <option value="3">Tháng 3</option>
-                <option value="4">Tháng 4</option>
-                <option value="5">Tháng 5</option>
-                <option value="6">Tháng 6</option>
-                <option value="7">Tháng 7</option>
-                <option value="8">Tháng 8</option>
-                <option value="9">Tháng 9</option>
-                <option value="10">Tháng 10</option>
-                <option value="11">Tháng 11</option>
-                <option value="12">Tháng 12</option>
-            </select>
-            <button id="filterBtn">Lọc</button>
+        <!-- Main Content -->
+        <div class="main-content">
+            <div class="filter-container">
+                <label for="month-filter">Chọn tháng:</label>
+                <select id="month-filter">
+                    <option value="all">Tất cả</option>
+                    <option value="1">Tháng 1</option>
+                    <option value="2">Tháng 2</option>
+                    <option value="3">Tháng 3</option>
+                    <option value="4">Tháng 4</option>
+                    <option value="5">Tháng 5</option>
+                    <option value="6">Tháng 6</option>
+                    <option value="7">Tháng 7</option>
+                    <option value="8">Tháng 8</option>
+                    <option value="9">Tháng 9</option>
+                    <option value="10">Tháng 10</option>
+                    <option value="11">Tháng 11</option>
+                    <option value="12">Tháng 12</option>
+                </select>
+                <button id="filter-btn">Lọc</button>
+            </div>
+
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Tháng</th>
+                            <th>Doanh thu</th>
+                            <th>Số đơn hàng</th>
+                        </tr>
+                    </thead>
+                    <tbody id="revenue-table-body">
+                        <!-- Revenue rows will be added here -->
+                    </tbody>
+                </table>
+            </div>
         </div>
-        <div class="revenue">
-            <h2>Tổng doanh thu: <span id="totalRevenue">0 VNĐ</span></h2>
-        </div>
-        <table id="revenueTable">
-            <thead>
-                <tr>
-                    <th>Tháng</th>
-                    <th>Năm</th>
-                    <th>Tổng doanh thu</th>
-                </tr>
-            </thead>
-            <tbody>
-                <!-- Dữ liệu doanh thu sẽ được thêm vào đây -->
-            </tbody>
-        </table>
     </div>
-    <script src="script.js"></script>
 </body>
 
 </html>
