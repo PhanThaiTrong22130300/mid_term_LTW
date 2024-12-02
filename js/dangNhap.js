@@ -39,7 +39,7 @@ document.getElementById('loginForm').addEventListener('submit', function (e) {
     }
 
     // Chuyển hướng đến trang chủ
-    window.location.href = '../trang-chu.html';
+    window.location.href = '../html/trang-chu.html';
 });
 // Hiển thị lỗi
 function showError(inputId, message) {
@@ -105,7 +105,7 @@ document.querySelector('.cart a').addEventListener('click', function (e) {
 
 document.querySelector('.nav-links a[href="../html/san-Pham.html"]').addEventListener('click', function (e) {
     e.preventDefault();
-    window.location.href = '../html/san-Pham.html';
+    window.location.href = '../html/san-pham.html';
 });
 
 // Xử lý chuyển trang liên hệ

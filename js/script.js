@@ -30,3 +30,9 @@ showLessProductHot();
 
 btnMore.addEventListener('click', showMoreProductHot);
 btnLess.addEventListener('click', showLessProductHot);
+
+document.querySelectorAll('.btn-add-to-cart').forEach(button => {
+    button.addEventListener('click', function() {
+        alert("Sản phẩm đã được thêm vào giỏ hàng!");
+    });
+});

@@ -5,7 +5,7 @@ const VALIDATION_MESSAGES = {
     code: 'Vui lòng nhập đủ 6 số',
     password: {
         required: 'Vui lòng nhập mật khẩu',
-        invalid: 'Mật khẩu phải có ít nhất 8 ký tự, 1 chữ hoa, 1 số và 1 ký tự đặc biệt',
+        invalid: 'Mật khẩu phải có ít nhất 8 ký tự',
         mismatch: 'Mật khẩu không khớp'
     }
 };
@@ -33,7 +33,7 @@ function validatePassword(password, confirmPassword) {
     if (!password) {
         return VALIDATION_MESSAGES.password.required;
     }
-    const passwordRegex = /^(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+    const passwordRegex = /.{8,}$/; // Mật khẩu phải có ít nhất 8 ký tự
     if (!passwordRegex.test(password)) {
         return VALIDATION_MESSAGES.password.invalid;
     }
@@ -112,7 +112,7 @@ document.getElementById('newPasswordForm').addEventListener('submit', function (
         return;
     }
 
-    const passwordRegex = /^(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+    const passwordRegex = /.{8,}$/; // Mật khẩu phải có ít nhất 8 ký tự
     if (!passwordRegex.test(newPassword)) {
         showError('newPassword', VALIDATION_MESSAGES.password.invalid);
         return;
@@ -124,7 +124,7 @@ document.getElementById('newPasswordForm').addEventListener('submit', function (
     }
 
     alert('Đổi mật khẩu thành công!');
-    window.location.href = '../trangDangNhap/dangNhap.html';
+    window.location.href = '../html/dangNhap.html';
 });
 
 function showError(inputId, message) {
@@ -170,20 +170,11 @@ document.querySelector('.back-to-login').addEventListener('click', function (e) 
     const isConfirmed = confirm('Bạn có chắc muốn quay lại trang đăng nhập? Các thông tin đã nhập sẽ không được lưu.');
 
     if (isConfirmed) {
-        window.location.href = '../trangDangNhap/dangNhap.html';
+        window.location.href = '../html/dangNhap.html';
     }
 });
 
-// Xử lý phím ESC
-document.addEventListener('keydown', function (e) {
-    if (e.key === 'Escape') {
-        const isConfirmed = confirm('Bạn có chắc muốn quay lại trang đăng nhập? Các thông tin đã nhập sẽ không được lưu.');
 
-        if (isConfirmed) {
-            window.location.href = '../trangDangNhap/dangNhap.html';
-        }
-    }
-});
 
 // Xử lý validation cho các input
 document.querySelectorAll('input').forEach(input => {

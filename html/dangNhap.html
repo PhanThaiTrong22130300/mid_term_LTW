@@ -21,30 +21,30 @@
     <header>
         <div class="brand">TTD SHOP</div>
         <div class="auth-links">
-            <a href="../html/dangKy.html"><i class="fas fa-user-plus"></i> Đăng Ký</a>
-            <a href="../html/dangNhap.html"><i class="fas fa-sign-in-alt"></i> Đăng Nhập</a>
+          <a href="../html/dangKy.html"><i class="fas fa-user-plus"></i> Đăng Ký</a>
+          <a href="../html/dangNhap.html"><i class="fas fa-sign-in-alt"></i> Đăng Nhập</a>
         </div>
-    </header>
-
-    <nav>
+      </header>
+    
+      <nav>
         <ul>
-            <li><a href="../html/trang-chu.html">Trang chủ</a></li>
-            <li><a href="../html/san-pham.html">Sản phẩm</a></li>
-            <li><a href="#">Tin tức</a></li>
-            <li><a href="../html/lien-he.html">Liên hệ</a></li>
+          <li><a href="../html/trang-chu.html">Trang chủ</a></li>
+          <li><a href="../html/san-pham.html">Sản phẩm</a></li>
+          <li><a href="../html/tin-tuc.html">Tin tức</a></li>
+          <li><a href="../html/lien-he.html">Liên hệ</a></li>
         </ul>
-
+    
         <div class="search-container">
-            <i class="fas fa-search"></i>
-            <span class="search-label">Tìm kiếm</span>
-            <input type="text" class="search-box" placeholder=" ">
+          <i class="fas fa-search"></i>
+          <span class="search-label"></span>
+          <input type="text" class="search-box" placeholder="Tìm kiếm ">
         </div>
-
+    
         <div class="cart">
-            <i class="fas fa-shopping-cart cart-icon"></i>
-            <a href="#" class="cart-text"> Giỏ Hàng</a>
+          <i class="fas fa-shopping-cart cart-icon"></i>
+          <a href="gio-hang.html" class="cart-text"> Giỏ Hàng</a>
         </div>
-    </nav>
+      </nav>
     
     <main class="main-container">
         <div class="login-container">
@@ -105,7 +105,22 @@
             </div>
         </div>
     </footer>
+    <script>  // Xử lý đăng nhập
+        const loginButton = document.querySelector(".submit-btn");
+        loginButton.addEventListener("click", () => {
+          // Lấy giá trị từ các input
+          const email = document.querySelector('input[name="email"]').value;
+          const password = document.querySelector('input[name="password"]').value;
 
+          // Kiểm tra thông tin đăng nhập
+          if (email === "lht123@gmail.com" && password === "123") {
+            window.location.href = "../html/trang-chu.html"; // Chuyển đến trang chủ
+          } else if (email === "admin@gmail.com" && password === "123") {
+            window.location.href = "../html/admin.html"; // Chuyển đến trang admin
+          } else {
+            alert("Sai thông tin đăng nhập! Vui lòng thử lại.");
+          }
+        });</script>
 
 </body>
 
