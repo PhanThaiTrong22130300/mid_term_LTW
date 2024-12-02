@@ -1,0 +1,100 @@
+/* 1. Variables */
+:root {
+    --primary-color: #1877f2;
+    --secondary-color: #2c3e50;
+    --background-color: #f5f6fa;
+    --white: #ffffff;
+    --border-color: #ddd;
+    --success-color: #4CAF50;
+    --warning-color: #f1c40f;
+    --danger-color: #e74c3c;
+    --hover-color: rgba(0, 0, 0, 0.1);
+}
+
+/* 2. Base Styles */
+body {
+    background-color: var(--background-color);
+    color: var(--secondary-color);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+}
+
+.users-container {
+    padding: 20px;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+h1 {
+    font-size: 1.8rem;
+    color: var(--secondary-color);
+}
+
+/* 3. Table Styles */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th,
+td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid var(--border-color);
+}
+
+th {
+    background-color: var(--primary-color);
+    color: var(--white);
+    font-weight: bold;
+}
+
+td {
+    background-color: var(--white);
+    transition: background-color 0.3s ease;
+}
+
+
+
+/* 4. Button Styles */
+button {
+    padding: 10px 15px;
+    background-color: var(--success-color);
+    color: var(--white);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: var(--primary-color);
+}
+
+/* 5. Responsive Design */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    button {
+        width: 100%;
+        margin-top: 10px;
+    }
+
+    table {
+        font-size: 0.9rem;
+    }
+
+    th,
+    td {
+        padding: 8px;
+    }
+}

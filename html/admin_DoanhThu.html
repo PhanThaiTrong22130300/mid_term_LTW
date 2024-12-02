@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quản lý Doanh thu</title>
+    <link rel="stylesheet" href="../css/admin_DoanhThu.css">
+    <script src="../js/admin_DoanhThu.js" defer></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Quản lý Doanh thu</h1>
+        <div class="filter">
+            <label for="month">Chọn tháng:</label>
+            <select id="month">
+                <option value="1">Tháng 1</option>
+                <option value="2">Tháng 2</option>
+                <option value="3">Tháng 3</option>
+                <option value="4">Tháng 4</option>
+                <option value="5">Tháng 5</option>
+                <option value="6">Tháng 6</option>
+                <option value="7">Tháng 7</option>
+                <option value="8">Tháng 8</option>
+                <option value="9">Tháng 9</option>
+                <option value="10">Tháng 10</option>
+                <option value="11">Tháng 11</option>
+                <option value="12">Tháng 12</option>
+            </select>
+            <button id="filterBtn">Lọc</button>
+        </div>
+        <div class="revenue">
+            <h2>Tổng doanh thu: <span id="totalRevenue">0 VNĐ</span></h2>
+        </div>
+        <table id="revenueTable">
+            <thead>
+                <tr>
+                    <th>Tháng</th>
+                    <th>Năm</th>
+                    <th>Tổng doanh thu</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Dữ liệu doanh thu sẽ được thêm vào đây -->
+            </tbody>
+        </table>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>
