@@ -15,14 +15,20 @@ a{
     height: 400px;
     display: flex;
     align-items: center;
-    max-width: 1200px;
+    width: 1200px;
     margin: 0 auto;
     overflow: hidden;
+    background-color: black;
+
 }
 
 .hero-image img {
     width: 100%;
-    height: auto;
+    height: 100%;
+    object-fit: contain;
+
+
+
 }
 
 .product-title {
@@ -49,6 +55,7 @@ a{
     width: 100%;
     box-sizing: border-box;
 }
+
 .product-container {
     display: flex;
     flex-wrap: nowrap;
@@ -56,7 +63,8 @@ a{
 }
 
 .product-grid::-webkit-scrollbar {
-    width: 10px; /* Kích thước thanh cuộn */
+    width: 10px;
+    /* Kích thước thanh cuộn */
 }
 
 .product-grid::-webkit-scrollbar-thumb {
@@ -81,7 +89,7 @@ a{
     text-align: center;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s, box-shadow 0.3s;
-    display:flex;
+    display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -103,6 +111,7 @@ a{
     font-size: 16px;
     height: 40px;
 }
+
 .product h3 a {
     color: #333;
     transition: color 0.3s ease, text-decoration 0.3s ease;
@@ -207,13 +216,19 @@ button.btn-add-to-cart{
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     grid-gap: 20px;
+    grid-auto-rows: minmax(450px, auto);
 }
 
 .news-item {
     background-color: #fff;
     border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    padding: 16px;
+    height: 100%;
+    justify-content: space-between;
 }
 
 .news-item img {
@@ -222,23 +237,23 @@ button.btn-add-to-cart{
     object-fit: cover;
 }
 
-.news-item h3 a {
+.news-item h3 {
     font-size: 18px;
     font-weight: bold;
-    margin: 16px;
     color: #333;
     text-decoration: none;
     transition: color 0.3s ease;
-}
-
-.news-item h3 a:hover {
-    color: #007bff;
+    display: flex;
+    align-items: center;
+    margin-bottom: 0px;
 }
 
 .news-item p {
     font-size: 14px;
     color: #666;
-    margin: 0 16px 16px;
+    display: flex;
+    align-items: center;
+    margin-bottom: 50px;
 }
 
 .news-item .read-more {
@@ -248,7 +263,9 @@ button.btn-add-to-cart{
     padding: 8px 16px;
     border-radius: 4px;
     text-decoration: none;
-    margin: 0 16px 16px;
+    position: absolute;
+    bottom: 7px;
+    right: 7px;
     transition: background-color 0.3s ease;
 }
 
