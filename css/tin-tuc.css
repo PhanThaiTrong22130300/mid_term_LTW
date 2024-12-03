@@ -24,11 +24,11 @@ h2 {
     color: #555;
 }
 
-ul, ol {
+main ul, ol {
     padding-left: 40px;
 }
 
-ul li, ol li {
+main ul li, ol li {
     margin: 10px 0;
 }
 

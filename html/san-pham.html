@@ -24,19 +24,19 @@
   <ul>
     <li><a href="../html/trang-chu.html">Trang chủ</a></li>
     <li><a href="../html/san-pham.html">Sản phẩm</a></li>
-    <li><a href="#">Tin tức</a></li>
+    <li><a href="../html/tin-tuc.html">Tin tức</a></li>
     <li><a href="../html/lien-he.html">Liên hệ</a></li>
 </ul>
 
   <div class="search-container">
     <i class="fas fa-search"></i>
-    <span class="search-label">Tìm kiếm</span>
-    <input type="text" class="search-box" placeholder=" ">
+    <span class="search-label"></span>
+    <input type="text" class="search-box" placeholder="Tìm kiếm ">
   </div>
 
   <div class="cart">
     <i class="fas fa-shopping-cart cart-icon"></i>
-    <a href="gio-hang.html" class="cart-text"> Giỏ Hàng</a>
+    <a href="../html/gio-hang.html" class="cart-text"> Giỏ Hàng</a>
   </div>
 </nav>
 
@@ -78,11 +78,11 @@
 <div class="product-container">
   <div class="product">
     <img src="https://lethnic.vn/cdn/shop/files/LethnicViDungGap3CianVNau01_500x.jpg?v=1685601076" alt="Ví da cao cấp 1">
-    <h3><a href="chi-tiet-sp.html">Ví Nam Dáng Đứng Gập - Cian V</a></h3>
+    <h3><a href="../html/chi-tiet-sp.html">Ví Nam Dáng Đứng Gập - Cian V</a></h3>
     <p>Thiết kế tinh tế, độ bền cao</p>
     <div class="price">560.000đ <span class="discount">-33%</span></div>
     <div class="product-buttons">
-      <button class="btn-detail">Xem chi tiết </button>
+      <button class="btn-buy" onclick="gotoDetail()">Mua Ngay/button>
       <button class="btn-add-to-cart">Thêm vào Giỏ Hàng</button>
     </div>
   </div>
@@ -93,7 +93,7 @@
     <p>Phong cách thời trang</p>
     <div class="price">472.000đ</div>
     <div class="product-buttons">
-      <button class="btn-detail">Xem Chi Tiết</button>
+      <button class="btn-buy">Mua Ngay</button>
       <button class="btn-add-to-cart">Thêm vào Giỏ Hàng</button>
     </div>
   </div>
@@ -535,6 +535,12 @@
 </footer>
 <script src="../js/san-pham.js"></script>
 <script src="../js/menu.js"></script>
+<script>
+function gotoDetail() {
+  // Navigate to the thanh-toan.html page
+  window.location.href = "../html/thanh-toan.html";
+}
+</script>
 
 </body>
 </html>

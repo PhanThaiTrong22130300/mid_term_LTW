@@ -88,7 +88,7 @@ function displayProducts(productsToDisplay) {
             <p>${product.description}</p>
             <div class="price">${product.price.toLocaleString()}đ ${discountHTML}</div>
             <div class="product-buttons">
-                <button class="btn-buy">Mua Ngay</button>
+                <button class="btn-buy" onclick="gotoPay(${product.id})">Mua Ngay</button>
                 <button class="btn-add-to-cart">Thêm vào Giỏ Hàng</button>
             </div>
         `;
@@ -130,3 +130,6 @@ document.getElementById('action').addEventListener('change', handleActionSelecti
 
 // Hiển thị tất cả sản phẩm lúc khởi động trang
 displayProducts(products);
+function gotoPay(){
+    window.location.href='../html/thanh-toan.html'
+}
