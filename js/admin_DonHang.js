@@ -41,13 +41,20 @@ function navigateToSection(section) {
     }
 }
 
+let orders = []; // Biến toàn cục để lưu trữ đơn hàng
+
 function loadOrders() {
     // Simulate loading orders
-    const orders = [
+    orders = [
         { orderId: '001', productName: 'Ví da nam', quantity: 2, price: '1.000.000đ', status: 'Đã giao' },
         { orderId: '002', productName: 'Ví da nữ', quantity: 1, price: '600.000đ', status: 'Chưa giao' },
     ];
+    displayOrders();
+}
+
+function displayOrders() {
     const tableBody = document.getElementById('orders-table-body');
+    tableBody.innerHTML = ''; // Xóa nội dung cũ
     orders.forEach(order => {
         const row = document.createElement('tr');
         row.innerHTML = `
@@ -63,6 +70,8 @@ function loadOrders() {
 }
 
 function deleteOrder(orderId) {
-    // Logic to delete an order
-    alert(`Xóa đơn hàng: ${orderId}`);
+    if (confirm('Bạn có chắc chắn muốn xóa đơn hàng này?')) {
+        orders = orders.filter(order => order.orderId !== orderId); // Xóa đơn hàng
+        displayOrders(); // Cập nhật bảng đơn hàng
+    }
 }

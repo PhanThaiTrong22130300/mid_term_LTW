@@ -7,37 +7,25 @@ const VALIDATION_MESSAGES = {
     terms: 'Vui lòng đồng ý với điều khoản sử dụng'
 };
 
-// Initialize App
-document.addEventListener('DOMContentLoaded', () => {
-    initializeElements();
-    initializeEventListeners();
-});
-
-// Element Initialization 
-function initializeElements() {
-    window.elements = {
-        form: document.getElementById('registerForm'),
-        inputs: {
-            fullname: document.getElementById('fullname'),
-            email: document.getElementById('email'),
-            password: document.getElementById('password'),
-            confirmPassword: document.getElementById('confirmPassword'),
-            terms: document.getElementById('terms')
-        }
-    };
-}
+// DOM Elements
+const elements = {
+    form: document.getElementById('registerForm'),
+    fullname: document.getElementById('fullname'),
+    email: document.getElementById('email'),
+    password: document.getElementById('password'),
+    confirmPassword: document.getElementById('confirmPassword'),
+    terms: document.getElementById('terms'),
+};
 
 // Event Listeners
-function initializeEventListeners() {
-    const { form } = window.elements;
-
-    // Form submission
-    form.addEventListener('submit', handleFormSubmit);
-}
+document.addEventListener('DOMContentLoaded', () => {
+    elements.form.addEventListener('submit', handleFormSubmit);
+});
 
 // Form Handling
 async function handleFormSubmit(e) {
     e.preventDefault();
+    clearErrors(); // Xóa lỗi trước khi kiểm tra mới
     const formData = getFormData();
 
     if (validateForm(formData)) {
@@ -45,76 +33,71 @@ async function handleFormSubmit(e) {
     }
 }
 
-// Các hàm hỗ trợ form
+// Get Form Data
 function getFormData() {
-    const { inputs } = window.elements;
     return {
-        fullname: inputs.fullname.value,
-        email: inputs.email.value,
-        password: inputs.password.value,
-        confirmPassword: inputs.confirmPassword.value,
-        terms: inputs.terms.checked
+        fullname: elements.fullname.value.trim(),
+        email: elements.email.value.trim(),
+        password: elements.password.value,
+        confirmPassword: elements.confirmPassword.value,
+        terms: elements.terms.checked
     };
 }
 
+// Validate Form
 function validateForm(data) {
     const errors = [];
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    const passwordRegex = /^.{8,}$/;
 
-    // Kiểm tra họ và tên
-    if (!data.fullname.trim()) {
-        showError('fullname', VALIDATION_MESSAGES.required);
+    // Validate Fullname
+    if (!data.fullname) {
+        showError(elements.fullname, VALIDATION_MESSAGES.required);
         errors.push('fullname');
     }
 
-    // Kiểm tra email
-    if (!data.email.trim()) {
-        showError('email', VALIDATION_MESSAGES.required);
+    // Validate Email
+    if (!data.email) {
+        showError(elements.email, VALIDATION_MESSAGES.required);
         errors.push('email');
-    } else if (!emailRegex.test(data.email)) {
-        showError('email', VALIDATION_MESSAGES.email);
+    } else if (!isValidEmail(data.email)) {
+        showError(elements.email, VALIDATION_MESSAGES.email);
         errors.push('email');
     }
 
-    // Kiểm tra mật khẩu
+    // Validate Password
     if (!data.password) {
-        showError('password', VALIDATION_MESSAGES.required);
+        showError(elements.password, VALIDATION_MESSAGES.required);
         errors.push('password');
-    } else if (!passwordRegex.test(data.password)) {
-        showError('password', 'Mật khẩu phải có ít nhất 8 ký tự');
+    } else if (data.password.length < 8) {
+        showError(elements.password, VALIDATION_MESSAGES.password);
         errors.push('password');
     }
 
-    // Kiểm tra mật khẩu xác nhận
-    if (!data.confirmPassword) {
-        showError('confirmPassword', VALIDATION_MESSAGES.required);
-        errors.push('confirmPassword');
-    } else if (data.password !== data.confirmPassword) {
-        showError('confirmPassword', VALIDATION_MESSAGES.confirmPassword);
+    // Validate Confirm Password
+    if (data.password !== data.confirmPassword) {
+        showError(elements.confirmPassword, VALIDATION_MESSAGES.confirmPassword);
         errors.push('confirmPassword');
     }
 
-    // Kiểm tra điều khoản
+    // Validate Terms
     if (!data.terms) {
-        showError('terms', VALIDATION_MESSAGES.terms);
+        showError(elements.terms, VALIDATION_MESSAGES.terms);
         errors.push('terms');
     }
 
     return errors.length === 0;
 }
 
-function showError(inputId, message) {
-    const input = document.getElementById(inputId);
-    const container = inputId === 'terms' ? input.closest('.checkbox-container') : input.parentElement;
-
-    // Xóa thông báo lỗi cũ nếu có
+// Show Error
+function showError(input, message) {
+    const container = input.parentElement;
     const existingError = container.querySelector('.error-message');
+
+    // Remove existing error if any
     if (existingError) {
         existingError.remove();
     }
 
-    // Tạo và thêm thông báo lỗi mới
+    // Create and append new error message
     const errorDiv = document.createElement('div');
     errorDiv.className = 'error-message';
     errorDiv.textContent = message;
@@ -122,10 +105,26 @@ function showError(inputId, message) {
     input.classList.add('error');
 }
 
+// Clear Errors
+function clearErrors() {
+    const errorMessages = document.querySelectorAll('.error-message');
+    errorMessages.forEach(error => error.remove());
+    const inputs = document.querySelectorAll('input');
+    inputs.forEach(input => input.classList.remove('error'));
+}
+
+// Email Validation
+function isValidEmail(email) {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
+}
+
+// Submit Form
 async function submitForm(data) {
     try {
-        // Add your form submission logic here
+        // Simulate form submission logic
         console.log('Form submitted:', data);
+        // Redirect to login page
         window.location.href = '../html/dangNhap.html';
     } catch (error) {
         console.error('Error submitting form:', error);

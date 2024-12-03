@@ -10,14 +10,20 @@ body {
     height: 400px;
     display: flex;
     align-items: center;
-    max-width: 1200px;
+    width: 1200px;
     margin: 0 auto;
     overflow: hidden;
+    background-color: black;
+
 }
 
 .hero-image img {
     width: 100%;
-    height: auto;
+    height: 100%;
+    object-fit: contain;
+
+
+
 }
 
 .product-title {
@@ -44,6 +50,7 @@ body {
     width: 100%;
     box-sizing: border-box;
 }
+
 .product-container {
     display: flex;
     flex-wrap: nowrap;
@@ -51,7 +58,8 @@ body {
 }
 
 .product-grid::-webkit-scrollbar {
-    width: 10px; /* Kích thước thanh cuộn */
+    width: 10px;
+    /* Kích thước thanh cuộn */
 }
 
 .product-grid::-webkit-scrollbar-thumb {
@@ -76,7 +84,7 @@ body {
     text-align: center;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s, box-shadow 0.3s;
-    display:flex;
+    display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -98,6 +106,7 @@ body {
     font-size: 16px;
     height: 40px;
 }
+
 .product h3 a {
     color: #333;
     transition: color 0.3s ease, text-decoration 0.3s ease;

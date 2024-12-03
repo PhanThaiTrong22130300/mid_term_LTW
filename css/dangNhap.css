@@ -49,85 +49,8 @@ main {
     flex: 1;
 }
 
-/* 3. Header & Navigation */
-header {
-    background-color: var(--secondary-color);
-    color: var(--white);
-    padding: var(--spacing-sm) var(--spacing-lg);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    backdrop-filter: blur(5px);
-}
 
-.brand {
-    font-size: 1.5rem;
-    font-weight: bold;
-}
-
-.auth-links a {
-    color: var(--white);
-    margin-left: var(--spacing-sm);
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-}
-
-.auth-links a:hover {
-    color: var(--primary-color);
-    transform: translateY(-2px);
-    transition: var(--transition-default);
-}
-
-nav {
-    background-color: rgba(255, 255, 255, 0.9);
-    padding: var(--spacing-sm) var(--spacing-lg);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    backdrop-filter: blur(5px);
-}
-
-.nav-links {
-    display: flex;
-    gap: var(--spacing-lg);
-}
-
-.nav-links a {
-    color: var(--secondary-color);
-    font-weight: 500;
-}
-
-.nav-links a:hover {
-    color: var(--primary-color);
-    transform: translateY(-2px);
-    transition: var(--transition-default);
-}
-
-/* 4. Cart Styles */
-.cart {
-    display: flex;
-    align-items: center;
-    gap: var(--spacing-xs);
-}
-
-.cart-icon,
-.cart-text {
-    color: var(--secondary-color);
-    transition: var(--transition-default);
-}
-
-.cart-text {
-    font-weight: 500;
-}
-
-.cart:hover .cart-icon,
-.cart:hover .cart-text {
-    color: var(--primary-color);
-    transform: translateY(-2px);
-}
-
-/* 5. Main Content & Login Form */
+/* 4. Main Content & Login Form */
 .main-container {
     max-width: 600px;
     margin: 20px auto;
@@ -155,7 +78,7 @@ nav {
     color: var(--primary-color);
 }
 
-/* 6. Form Elements */
+/* 5. Form Elements */
 .form-section {
     margin-bottom: var(--spacing-md);
 }
@@ -185,7 +108,7 @@ nav {
     box-shadow: 0 0 0 2px rgba(24, 119, 242, 0.2);
 }
 
-/* 7. Password Input */
+/* 6. Password Input */
 .password-input {
     position: relative;
 }
@@ -199,7 +122,7 @@ nav {
     color: var(--secondary-color);
 }
 
-/* 8. Checkbox & Forgot Password */
+/* 7. Checkbox & Forgot Password */
 .checkbox-container {
     display: flex;
     align-items: center;
@@ -215,7 +138,7 @@ nav {
     text-decoration: underline;
 }
 
-/* 9. Buttons */
+/* 8. Buttons */
 .submit-btn {
     width: 100%;
     padding: var(--spacing-sm);
@@ -233,7 +156,7 @@ nav {
     box-shadow: var(--shadow-sm);
 }
 
-/* 10. Social Login */
+/* 9. Social Login */
 .social-login {
     text-align: center;
     margin-top: var(--spacing-lg);
@@ -249,7 +172,7 @@ nav {
     gap: var(--spacing-sm);
 }
 
-/* 11. Register Link */
+/* 10. Register Link */
 .register-link {
     text-align: center;
     margin-top: var(--spacing-md);
@@ -265,30 +188,7 @@ nav {
     transition: var(--transition-default);
 }
 
-/* 12. Footer */
-footer {
-    background-color: var(--secondary-color);
-    color: var(--white);
-    padding: var(--spacing-md);
-    margin-top: var(--spacing-md);
-    text-align: center;
-}
-
-.footer-contact {
-    margin-bottom: var(--spacing-sm);
-}
-
-.footer-links a {
-    margin: 0 var(--spacing-xs);
-    color: var(--white);
-}
-
-.footer-links a:hover {
-    color: var(--success-color);
-    transition: var(--transition-default);
-}
-
-/* 13. Animations */
+/* 12. Animations */
 @keyframes fadeIn {
     from {
         opacity: 0;
@@ -301,28 +201,8 @@ footer {
     }
 }
 
-/* 14. Responsive Design */
+/* 13. Responsive Design */
 @media (max-width: 768px) {
-    header {
-        flex-direction: column;
-        gap: var(--spacing-sm);
-        text-align: center;
-    }
-
-    nav {
-        flex-direction: column;
-        gap: var(--spacing-sm);
-    }
-
-    .nav-links {
-        flex-direction: column;
-        gap: var(--spacing-sm);
-    }
-
-    .auth-links {
-        margin-top: var(--spacing-xs);
-    }
-
     .main-container {
         padding: var(--spacing-sm);
     }
