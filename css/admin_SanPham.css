@@ -1,5 +1,6 @@
 /* 1. Variables */
 :root {
+    /* Colors */
     --primary-color: #1877f2;
     --secondary-color: #2c3e50;
     --background-color: #f5f6fa;
@@ -8,77 +9,244 @@
     --success-color: #4CAF50;
     --warning-color: #f1c40f;
     --danger-color: #e74c3c;
+    --sidebar-color: #2c3e50;
+
+    /* Shadows */
+    --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.1);
+    --shadow-md: 0 4px 8px rgba(0, 0, 0, 0.2);
+
+    /* Transitions */
+    --transition-default: all 0.3s ease;
+
+    /* Spacing */
+    --spacing-xs: 0.5rem;
+    --spacing-sm: 1rem;
+    --spacing-md: 1.5rem;
+    --spacing-lg: 2rem;
 }
 
-/* 2. Base Styles */
-body {
-    background-color: var(--background-color);
-    color: var(--secondary-color);
+/* 2. Reset & Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-.products-container {
-    padding: 20px;
-}
-
-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 20px;
-}
-
-h1 {
-    font-size: 1.5rem;
+body {
+    background-color: var(--background-color);
     color: var(--secondary-color);
+    line-height: 1.6;
 }
 
-/* 3. Table Styles */
+/* 3. Layout */
+.products-container {
+    display: flex;
+    min-height: 100vh;
+}
+
+/* 4. Sidebar */
+.sidebar {
+    width: 250px;
+    background-color: var(--sidebar-color);
+    color: var(--white);
+    padding: var(--spacing-md);
+    position: fixed;
+    height: 100vh;
+    overflow-y: auto;
+    transition: width 0.3s ease;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: var(--spacing-lg);
+    padding-bottom: var(--spacing-sm);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.sidebar nav {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xs);
+}
+
+.sidebar nav a {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    padding: var(--spacing-sm);
+    color: var(--white);
+    text-decoration: none;
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+}
+
+
+
+.sidebar nav a:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+
+}
+
+.sidebar nav a.active {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+
+
+
+
+
+/* 5. Main Content */
+.main-content {
+    flex: 1;
+    padding: var(--spacing-md);
+    margin-left: 250px;
+    /* Đảm bảo nội dung không bị che bởi sidebar */
+    transition: margin-left 0.3s ease;
+    /* Hiệu ứng chuyển tiếp khi sidebar thay đổi kích thước */
+    background-color: var(--white);
+    /* Màu nền cho nội dung chính */
+    box-shadow: var(--shadow-md);
+    /* Đổ bóng cho nội dung chính */
+    border-radius: 8px;
+    /* Bo góc cho nội dung chính */
+}
+
+/* Form Styles */
+#add-product-form {
+    margin-top: var(--spacing-lg);
+    /* Khoảng cách trên cho form */
+    padding: var(--spacing-md);
+    /* Padding cho form */
+    background-color: var(--white);
+    /* Màu nền cho form */
+    box-shadow: var(--shadow-md);
+    /* Đổ bóng cho form */
+    border-radius: 8px;
+    /* Bo góc cho form */
+}
+
+#add-product-form label {
+    display: block;
+    /* Hiển thị label dưới dạng khối */
+    margin-bottom: var(--spacing-xs);
+    /* Khoảng cách dưới label */
+}
+
+#add-product-form input {
+    width: 100%;
+    /* Chiều rộng đầy đủ cho input */
+    padding: var(--spacing-xs);
+    /* Padding cho input */
+    margin-bottom: var(--spacing-md);
+    /* Khoảng cách dưới input */
+    border: 1px solid var(--border-color);
+    /* Đường viền cho input */
+    border-radius: 4px;
+    /* Bo góc cho input */
+}
+
+/* Table Container */
+.table-container {
+    margin-top: var(--spacing-lg);
+    /* Khoảng cách trên cho bảng */
+    overflow-x: auto;
+    /* Cho phép cuộn ngang nếu bảng quá rộng */
+}
+
+/* Table Styles */
 table {
     width: 100%;
+    /* Đảm bảo bảng chiếm toàn bộ chiều rộng */
     border-collapse: collapse;
+    /* Gộp các đường viền của bảng */
 }
 
 th,
 td {
-    padding: 10px;
+    padding: var(--spacing-sm);
+    /* Khoảng cách bên trong cho ô */
     text-align: left;
+    /* Căn trái cho văn bản */
     border-bottom: 1px solid var(--border-color);
+    /* Đường viền dưới cho ô */
 }
 
 th {
     background-color: var(--primary-color);
+    /* Màu nền cho tiêu đề bảng */
     color: var(--white);
+    /* Màu chữ cho tiêu đề bảng */
 }
 
-td {
-    background-color: var(--white);
+tr:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+    /* Hiệu ứng hover cho hàng bảng */
 }
 
-/* 4. Button Styles */
+/* Button Styles */
 button {
-    padding: 10px 15px;
-    background-color: var(--success-color);
+    background-color: var(--primary-color);
+    /* Màu nền cho nút */
     color: var(--white);
+    /* Màu chữ cho nút */
     border: none;
-    border-radius: 5px;
+    /* Không có đường viền */
+    padding: var(--spacing-xs) var(--spacing-sm);
+    /* Giảm khoảng cách bên trong cho nút */
+    border-radius: 8px;
+    /* Giảm bo góc cho nút */
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    /* Con trỏ chuột khi hover */
+    transition: background-color 0.3s ease, transform 0.2s;
+    /* Hiệu ứng chuyển tiếp */
+    box-shadow: var(--shadow-sm);
+    /* Đổ bóng cho nút */
 }
 
 button:hover {
-    background-color: var(--primary-color);
+    background-color: var(--success-color);
+    /* Màu nền khi hover */
+    transform: scale(1.05);
+    /* Phóng to nút khi hover */
 }
 
-/* 5. Responsive Design */
+button:disabled {
+    background-color: var(--border-color);
+    /* Màu nền cho nút bị vô hiệu hóa */
+    cursor: not-allowed;
+    /* Con trỏ chuột khi nút bị vô hiệu hóa */
+}
+
+/* 7. Responsive Design */
 @media (max-width: 768px) {
-    header {
-        flex-direction: column;
-        align-items: flex-start;
+    .sidebar {
+        width: 0;
+        /* Ẩn sidebar trên màn hình nhỏ */
+        padding: 0;
     }
 
-    button {
+    .products-container {
+        flex-direction: column;
+        /* Xếp chồng các phần tử theo chiều dọc */
+    }
+
+    header {
+        flex-direction: column;
+        /* Xếp chồng các phần tử trong header */
+        align-items: flex-start;
+        /* Căn chỉnh các phần tử về phía bắt đầu */
+    }
+
+    #add-product-btn {
         width: 100%;
-        margin-top: 10px;
+        /* Chiều rộng đầy đủ trên màn hình nhỏ */
+        margin-top: var(--spacing-sm);
+        /* Khoảng cách trên cho nút */
     }
 }
