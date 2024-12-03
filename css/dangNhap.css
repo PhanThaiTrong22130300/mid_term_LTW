@@ -49,8 +49,30 @@ main {
     flex: 1;
 }
 
+/* 4. Cart Styles */
+.cart {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+}
 
-/* 4. Main Content & Login Form */
+.cart-icon,
+.cart-text {
+    color: var(--secondary-color);
+    transition: var(--transition-default);
+}
+
+.cart-text {
+    font-weight: 500;
+}
+
+.cart:hover .cart-icon,
+.cart:hover .cart-text {
+    color: var(--primary-color);
+    transform: translateY(-2px);
+}
+
+/* 5. Main Content & Login Form */
 .main-container {
     max-width: 600px;
     margin: 20px auto;
@@ -78,7 +100,7 @@ main {
     color: var(--primary-color);
 }
 
-/* 5. Form Elements */
+/* 6. Form Elements */
 .form-section {
     margin-bottom: var(--spacing-md);
 }
@@ -108,7 +130,7 @@ main {
     box-shadow: 0 0 0 2px rgba(24, 119, 242, 0.2);
 }
 
-/* 6. Password Input */
+/* 7. Password Input */
 .password-input {
     position: relative;
 }
@@ -122,7 +144,7 @@ main {
     color: var(--secondary-color);
 }
 
-/* 7. Checkbox & Forgot Password */
+/* 8. Checkbox & Forgot Password */
 .checkbox-container {
     display: flex;
     align-items: center;
@@ -138,7 +160,7 @@ main {
     text-decoration: underline;
 }
 
-/* 8. Buttons */
+/* 9. Buttons */
 .submit-btn {
     width: 100%;
     padding: var(--spacing-sm);
@@ -156,7 +178,7 @@ main {
     box-shadow: var(--shadow-sm);
 }
 
-/* 9. Social Login */
+/* 10. Social Login */
 .social-login {
     text-align: center;
     margin-top: var(--spacing-lg);
@@ -172,7 +194,7 @@ main {
     gap: var(--spacing-sm);
 }
 
-/* 10. Register Link */
+/* 11. Register Link */
 .register-link {
     text-align: center;
     margin-top: var(--spacing-md);
@@ -188,7 +210,7 @@ main {
     transition: var(--transition-default);
 }
 
-/* 12. Animations */
+/* 13. Animations */
 @keyframes fadeIn {
     from {
         opacity: 0;
@@ -201,8 +223,28 @@ main {
     }
 }
 
-/* 13. Responsive Design */
+/* 14. Responsive Design */
 @media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        gap: var(--spacing-sm);
+        text-align: center;
+    }
+
+    nav {
+        flex-direction: column;
+        gap: var(--spacing-sm);
+    }
+
+    .nav-links {
+        flex-direction: column;
+        gap: var(--spacing-sm);
+    }
+
+    .auth-links {
+        margin-top: var(--spacing-xs);
+    }
+
     .main-container {
         padding: var(--spacing-sm);
     }

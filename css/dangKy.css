@@ -44,11 +44,8 @@ body {
 
 a {
     text-decoration: none;
-    color: var(--primary-color);
-    font-weight: 500;
+    color: inherit;
 }
-
-
 
 /* Main Container */
 .main-container {
@@ -144,45 +141,76 @@ a {
     margin-top: var(--spacing-xs);
 }
 
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .nav-links {
+        flex-direction: column;
+        gap: var(--spacing-sm);
+    }
+
+    .buttons-container {
+        flex-direction: column;
+    }
+}
+
+/* Cart hover effect */
+.cart {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+}
+
+.cart-icon {
+    color: var(--secondary-color);
+    transition: var(--transition-default);
+}
+
+.cart-text {
+    color: var(--secondary-color);
+    font-weight: 500;
+    transition: var(--transition-default);
+}
+
+.cart:hover .cart-icon,
+.cart:hover .cart-text {
+    color: var(--primary-color);
+    transform: translateY(-2px);
+}
+
+/* Login link hover effect */
+.login-link a {
+    color: var(--primary-color);
+    font-weight: 500;
+    transition: var(--transition-default);
+
+}
+
+.login-link a:hover {
+    text-decoration: underline;
+    transform: translateY(-2px);
+    display: inline-block;
+}
+
+.login-link {
+    margin-top: var(--spacing-md);
+    text-align: center;
+}
+
+.login-link p {
+    color: var(--secondary-color);
+}
+
 .error-message {
-    color: var(--error-color);
+    color: #dc3545;
     font-size: 0.8rem;
     margin-top: 0.25rem;
 }
 
-/* Responsive Design */
-@media (max-width: 768px) {
+input.error {
+    border-color: #dc3545;
+}
 
-    /* Login link hover effect */
-    .login-link a {
-        color: var(--primary-color);
-        font-weight: 500;
-        transition: var(--transition-default);
-
-    }
-
-    .login-link a:hover {
-        text-decoration: underline;
-        transform: translateY(-2px);
-        display: inline-block;
-    }
-
-    .login-link {
-        margin-top: var(--spacing-md);
-        text-align: center;
-    }
-
-    .login-link p {
-        color: var(--secondary-color);
-    }
-
-
-
-    input.error {
-        border-color: var(--error-color);
-    }
-
-    .checkbox-container .error-message {
-        margin-left: 1.5rem;
-    }
+.checkbox-container .error-message {
+    margin-left: 1.5rem;
 }
