@@ -44,7 +44,8 @@ body {
 
 a {
     text-decoration: none;
-    color: inherit;
+    color: var(--primary-color);
+    font-weight: 500;
 }
 
 
