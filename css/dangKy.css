@@ -1,4 +1,4 @@
-body{
+body {
     font-family: Tahoma, sans-serif;
     margin: 0;
     padding: 0;
@@ -21,6 +21,7 @@ body{
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     max-width: 400px;
     width: 100%;
+    border: 1px solid #007bff;
 }
 
 .register-container h2 {
@@ -52,6 +53,13 @@ input[type="password"] {
     border: 1px solid #ccc;
     border-radius: 5px;
     font-size: 14px;
+    transition: border-color 0.3s ease;
+}
+
+.form-group input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus {
+    border-color: #007bff;
 }
 
 input[type="checkbox"] {
@@ -64,7 +72,7 @@ input[type="checkbox"] {
     margin-bottom: 10px;
 }
 
-.checkbox-container label{
+.checkbox-container label {
     margin-top: 5px;
 }
 
@@ -78,10 +86,12 @@ input[type="checkbox"] {
     border-radius: 5px;
     font-size: 16px;
     cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
 .submit-btn:hover {
     background-color: #0056b3;
+    transform: scale(1.05);
 }
 
 .login-link {

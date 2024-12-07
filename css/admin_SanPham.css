@@ -10,6 +10,7 @@
     --warning-color: #f1c40f;
     --danger-color: #e74c3c;
     --sidebar-color: #2c3e50;
+    --hover-color: rgba(255, 255, 255, 0.1);
 
     /* Shadows */
     --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -42,7 +43,7 @@ body {
 /* 3. Layout */
 .products-container {
     display: flex;
-    min-height: 100vh;
+    min-height: 0;
 }
 
 /* 4. Sidebar */
@@ -85,36 +86,28 @@ body {
     transition: background-color 0.3s ease;
 }
 
-
-
 .sidebar nav a:hover {
-    background-color: rgba(255, 255, 255, 0.1);
-
+    background-color: var(--hover-color);
 }
 
 .sidebar nav a.active {
     background-color: rgba(255, 255, 255, 0.2);
 }
 
-
-
-
-
-
 /* 5. Main Content */
 .main-content {
     flex: 1;
     padding: var(--spacing-md);
     margin-left: 250px;
-    /* Đảm bảo nội dung không bị che bởi sidebar */
+
     transition: margin-left 0.3s ease;
-    /* Hiệu ứng chuyển tiếp khi sidebar thay đổi kích thước */
+
     background-color: var(--white);
-    /* Màu nền cho nội dung chính */
+
     box-shadow: var(--shadow-md);
-    /* Đổ bóng cho nội dung chính */
+
     border-radius: 8px;
-    /* Bo góc cho nội dung chính */
+
 }
 
 /* Form Styles */
@@ -203,7 +196,7 @@ button {
     /* Giảm bo góc cho nút */
     cursor: pointer;
     /* Con trỏ chuột khi hover */
-    transition: background-color 0.3s ease, transform 0.2s;
+    transition: background-color var(--transition-default), transform 0.2s;
     /* Hiệu ứng chuyển tiếp */
     box-shadow: var(--shadow-sm);
     /* Đổ bóng cho nút */
@@ -221,6 +214,23 @@ button:disabled {
     /* Màu nền cho nút bị vô hiệu hóa */
     cursor: not-allowed;
     /* Con trỏ chuột khi nút bị vô hiệu hóa */
+}
+
+.logout-btn button {
+    background-color: var(--danger-color-dark);
+    color: var(--white);
+    border: none;
+    padding: var(--spacing-sm) var(--spacing-md);
+    border-radius: 8px;
+    cursor: pointer;
+    transition: var(--transition-default);
+    position: absolute;
+    bottom: 20px;
+}
+
+.logout-btn button:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
 }
 
 /* 7. Responsive Design */
@@ -249,4 +259,19 @@ button:disabled {
         margin-top: var(--spacing-sm);
         /* Khoảng cách trên cho nút */
     }
+
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Thêm vào file CSS của bạn */
+.table-container img {
+    max-width: 100px;
+    /* Đặt chiều rộng tối đa cho ảnh */
+    max-height: 100px;
+    /* Đặt chiều cao tối đa cho ảnh */
+    object-fit: cover;
+    /* Đảm bảo ảnh không bị méo */
 }

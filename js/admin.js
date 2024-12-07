@@ -58,16 +58,16 @@ function handleNavigation(e) {
 
     switch (targetSection) {
         case 'products':
-            window.location.href = 'admin_SanPham.html';
+            window.location.href = '../html/admin_SanPham.html';
             break;
         case 'users':
-            window.location.href = 'admin_NguoiDung.html';
+            window.location.href = '../html/admin_NguoiDung.html';
             break;
         case 'orders':
-            window.location.href = 'admin_DonHang.html';
+            window.location.href = '../html/admin_DonHang.html';
             break;
         case 'revenue':
-            window.location.href = 'admin_DoanhThu.html';
+            window.location.href = '../html/admin_DoanhThu.html';
             break;
         default:
             elements.content.sections.forEach(section => {

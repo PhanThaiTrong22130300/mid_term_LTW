@@ -2,6 +2,11 @@ document.addEventListener('DOMContentLoaded', () => {
     loadRevenue();
     const links = document.querySelectorAll('.sidebar nav a');
 
+    // Khởi tạo sự kiện cho nút đăng xuất
+    const logoutBtn = document.getElementById('logout-btn');
+    if (logoutBtn) {
+        logoutBtn.addEventListener('click', handleLogout);
+    }
     links.forEach(link => {
         link.addEventListener('click', function (event) {
             // Ngăn chặn hành vi mặc định của liên kết
@@ -81,4 +86,18 @@ function filterRevenue() {
     }
 
     displayRevenue(filteredData);
+}
+
+const MESSAGES = {
+
+    logout: 'Bạn có chắc muốn đăng xuất?'
+};
+
+
+// Logout Handler
+function handleLogout(e) {
+    e.preventDefault();
+    if (confirm(MESSAGES.logout)) {
+        window.location.href = '../html/dangNhap.html';
+    }
 }

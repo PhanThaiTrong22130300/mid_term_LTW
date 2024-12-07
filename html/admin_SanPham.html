@@ -7,7 +7,7 @@
     <title>TTD Shop - sanPham</title>
     <link rel="stylesheet" href="../css/admin_SanPham.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
-    <script src="../js/admin_SanPham.js" defer></script>
+
 </head>
 
 <body>
@@ -40,44 +40,68 @@
                     <span>Doanh thu</span>
                 </a>
             </nav>
-        </div>
-        <!-- Main Content -->
-        <div class="main-content">
-            <button id="add-product-btn">Thêm sản phẩm</button>
-
-            <!-- Form to add a new product -->
-            <div id="add-product-form" style="display: none;">
-                <h3>Thêm sản phẩm mới</h3>
-                <label for="product-name">Tên sản phẩm:</label>
-                <input type="text" id="product-name" required>
-
-                <label for="product-price">Giá:</label>
-                <input type="number" id="product-price" required>
-
-                <label for="product-quantity">Số lượng:</label>
-                <input type="number" id="product-quantity" required>
-
-                <button id="submit-product-btn">Xác nhận</button>
-                <button id="cancel-product-btn">Hủy</button>
-            </div>
-
-            <div class="table-container">
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Tên sản phẩm</th>
-                            <th>Giá</th>
-                            <th>Số lượng</th>
-                            <th>Hành động</th>
-                        </tr>
-                    </thead>
-                    <tbody id="products-table-body">
-                        <!-- Product rows will be added here -->
-                    </tbody>
-                </table>
+            <div class="logout-btn">
+                <button id="logout-btn">
+                    <i class="fas fa-sign-out-alt"></i> Đăng xuất
+                </button>
             </div>
         </div>
     </div>
+    <!-- Main Content -->
+    <div class="main-content">
+        <button id="add-product-btn">Thêm sản phẩm</button>
+
+        <!-- Form to add a new product -->
+        <div id="add-product-form" style="display: none;">
+            <h3 id="form-title"> Thêm sản phẩm mới</h3>
+
+            <label for="product-name">Tên sản phẩm:</label>
+            <input type="text" id="product-name" required>
+
+            <label for="product-price">Giá:</label>
+            <input type="number" id="product-price" required>
+
+            <label for="product-quantity">Số lượng:</label>
+            <input type="number" id="product-quantity" required>
+
+            <label for="product-color">Màu:</label>
+            <input type="text" id="product-color" required>
+
+            <label for="product-image">Ảnh:</label>
+            <input type="file" id="product-image" required>
+            <label for="product-description">Mô tả:</label>
+            <textarea id="product-description" rows="4" cols="50" required></textarea>
+
+            <div class="product-btn">
+                <button id="submit-product-btn">Xác nhận</button>
+                <button id="cancel-product-btn">Hủy</button>
+            </div>
+        </div>
+
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Tên sản phẩm</th>
+                        <th>Giá</th>
+                        <th>Số lượng</th>
+                        <th>Màu</th>
+                        <th>Ảnh</th>
+                        <th>Mô tả</th>
+                        <th>Hành động</th>
+                    </tr>
+                </thead>
+                <tbody id="product-list">
+                    <!-- Dữ liệu sản phẩm sẽ được thêm vào đây -->
+                </tbody>
+
+            </table>
+        </div>
+    </div>
+
+
+
+    <script src="../js/admin_SanPham.js" defer></script>
 </body>
 
 </html>
