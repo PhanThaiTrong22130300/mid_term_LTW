@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TTD Shop - Đăng Ký</title>
+
+    <!-- Styles -->
+     <link rel="stylesheet" href="../css/header.css">
+     <link rel="stylesheet" href="../css/footer.css">
+    <link rel="stylesheet" href="../css/dangKy.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+
+    <!-- Scripts -->
+    <script src="../js/dangKy.js" defer></script>
+    <script src="../js/menu.js"></script>
+</head>
+
+<body>
+    <header>
+        <div class="brand">TTD SHOP</div>
+        <div class="auth-links">
+          <a href="../html/dangKy.html"><i class="fas fa-user-plus"></i> Đăng Ký</a>
+          <a href="../html/dangNhap.html"><i class="fas fa-sign-in-alt"></i> Đăng Nhập</a>
+        </div>
+      </header>
+    
+      <nav>
+        <ul>
+          <li><a href="../html/trang-chu.html">Trang chủ</a></li>
+          <li><a href="../san-pham.jsp">Sản phẩm</a></li>
+          <li><a href="../html/tin-tuc.html">Tin tức</a></li>
+          <li><a href="../html/lien-he.html">Liên hệ</a></li>
+        </ul>
+    
+        <div class="search-container">
+          <i class="fas fa-search"></i>
+          <span class="search-label"></span>
+          <input type="text" class="search-box" placeholder="Tìm kiếm ">
+        </div>
+    
+        <div class="cart">
+          <i class="fas fa-shopping-cart cart-icon"></i>
+          <a href="gio-hang.html" class="cart-text"> Giỏ Hàng</a>
+        </div>
+      </nav>
+
+    <!-- Main Content -->
+    <main class="main-container">
+        <div class="register-container">
+            <h2>Đăng Ký Tài Khoản</h2>
+            <form id="registerForm" novalidate>
+                <!-- Personal Info -->
+                <div class="form-section">
+                    <div class="form-group">
+                        <label for="fullname">Họ và tên</label>
+                        <input type="text" id="fullname" name="fullname" required placeholder="Nhập họ và tên của bạn">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" required placeholder="nhập email của bạn">
+                    </div>
+                </div>
+
+                <!-- Password Section -->
+                <div class="form-section">
+                    <div class="form-group">
+                        <label for="password">Mật khẩu</label>
+                        <div class="password-input">
+                            <input type="password" id="password" name="password" required
+                                placeholder="Mật khẩu tối thiểu 8 ký tự">
+
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="confirmPassword">Xác nhận mật khẩu</label>
+                        <div class="password-input">
+                            <input type="password" id="confirmPassword" name="confirmPassword" required
+                                placeholder="Nhập lại mật khẩu">
+
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Terms and Submit -->
+                <div class="form-section">
+                    <div class="checkbox-container">
+                        <input type="checkbox" id="terms" required>
+                        <label for="terms">Tôi đồng ý với điều khoản sử dụng</label>
+                    </div>
+
+                    <button type="submit" class="submit-btn">Đăng Ký</button>
+                </div>
+
+
+
+                <div class="login-link">
+                    <p>Đã có tài khoản? <a href="../html/dangNhap.html">Đăng nhập ngay</a></p>
+                </div>
+            </form>
+        </div>
+    </main>
+
+    <!-- Footer Section -->
+    <footer>
+
+        <div class="footer-:<contact">
+
+            <p><i class="fas fa-phone-alt"></i> Điện thoại:012 345 678</a></p>
+            <p><i class="fas fa-envelope"></i> Email:ttdshop@gmail.com</a></p>
+        </div>
+
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="#">Giới Thiệu</a> |
+                <a href="#">Điều Khoản</a> |
+                <a href="#">Chính Sách Bảo Mật</a>
+                <p>&copy; 2024 TTD Shop. Tất cả quyền được bảo lưu.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+
+
+</html>

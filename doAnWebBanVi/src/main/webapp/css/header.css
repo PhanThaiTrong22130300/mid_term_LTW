@@ -1,0 +1,133 @@
+header {
+    background: #333;
+    color: #fff;
+    padding:10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 50px;
+}
+
+.brand {
+    font-size: 24px;
+    font-weight: bold;
+    margin-left: 20px;
+}
+
+.auth-links {
+    margin-right: 20px;
+}
+
+.auth-links a {
+    color: #fff;
+    margin: 0 10px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.auth-links a:hover {
+    color: #ffc107;
+}
+
+nav {
+    background: #fff;
+    padding: 0 30px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav ul {
+    display: flex;
+    padding: 0;
+    margin: 0;
+    gap: 20px;
+}
+
+nav ul li {
+    list-style: none;
+    height: 60px;
+    width: 110px;
+}
+
+nav ul li a {
+    display: flex;
+    color: #555;
+    align-items: center; 
+    justify-content: center;
+    padding: 5px 16px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 15px;
+    height: 100%;
+}
+
+nav ul li a:hover {
+    text-decoration: underline;
+}
+
+nav ul li.active {
+    background-color: #333;
+}
+
+nav ul li.active a{
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.search-container {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    flex: 1;
+    padding: 0 20px;
+}
+
+.search-label {
+    color: #555;
+    margin-right: 5px;
+    font-weight: bold;
+}
+
+.search-box {
+    padding: 8px 12px;
+    font-size: 14px;
+    border-radius: 10px;
+    border: 1px solid #555;
+    background-color: #fff;
+    color: #555;
+    width: 100%;
+    max-width: 200px;
+    transition: width 0.3s ease;
+}
+
+
+#search-icon {
+    color: #555;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+.cart {
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+}
+
+.cart-icon {
+    font-size: 20px;
+    color: #555;
+    margin-left: auto;
+}
+
+.cart-text {
+    color: #555;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.cart-text:hover {
+    text-decoration: underline;
+}

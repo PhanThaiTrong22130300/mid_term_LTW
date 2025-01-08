@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TTD Shop - Admin</title>
+    <link rel="stylesheet" href="../css/admin.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <script src="../js/admin.js" defer></script>
+</head>
+
+<body>
+    <div class="admin-container">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <div class="brand">
+                <i class="fas fa-shield-alt"></i>
+                <span>TTD Admin</span>
+            </div>
+            <nav>
+                <a href="#dashboard" class="active" data-section="dashboard">
+                    <i class="fas fa-home"></i>
+                    <span>Trang chủ</span>
+                </a>
+                <a href="#products" data-section="products">
+                    <i class="fas fa-box"></i>
+                    <span>Sản phẩm</span>
+                </a>
+                <a href="#users" data-section="users">
+                    <i class="fas fa-users"></i>
+                    <span>Người dùng</span>
+                </a>
+                <a href="#orders" data-section="orders">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span>Đơn hàng</span>
+                </a>
+                <a href="#revenue" data-section="revenue">
+                    <i class="fas fa-chart-line"></i>
+                    <span>Doanh thu</span>
+                </a>
+            </nav>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <header>
+                <div class="search-bar">
+                    <i class="fas fa-search"></i>
+                    <input type="text" placeholder="Tìm kiếm...">
+                </div>
+                <div class="header-right">
+                    <button id="logout-btn">
+                        <i class="fas fa-sign-out-alt"></i> Đăng xuất
+                    </button>
+                </div>
+            </header>
+
+            <!-- Dashboard -->
+            <div id="dashboard" class="content-section active">
+                <div class="stats-container">
+                    <div class="stat-card" id="orders-stat">
+                        <div class="stat-icon" style="background-color: var(--success-color);">
+                            <i class="fas fa-shopping-cart"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3>Đơn hàng</h3>
+                            <p>60</p>
+                        </div>
+                    </div>
+                    <div class="stat-card" id="users-stat">
+                        <div class="stat-icon" style="background-color: var(--primary-color);">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3>Người dùng</h3>
+                            <p>20</p>
+                        </div>
+                    </div>
+                    <div class="stat-card" id="products-stat">
+                        <div class="stat-icon" style="background-color: var(--warning-color);">
+                            <i class="fas fa-box"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3>Sản phẩm</h3>
+                            <p>100</p>
+                        </div>
+                    </div>
+                    <div class="stat-card" id="revenue-stat">
+                        <div class="stat-icon" style="background-color: var(--danger-color);">
+                            <i class="fas fa-dollar-sign"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3>Doanh thu</h3>
+                            <p>50M</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+        </div>
+    </div>
+    </div>
+    </div>
+</body>
+
+</html>
